@@ -1,0 +1,211 @@
+{
+  "run_id": "20261028_0128_cnn_bs8_lr1e-4_flaw11_6.0",
+  "energy_MeV": "6",
+  "band_halfwidth_px": 60.0,
+  "trajectory": {
+    "amp": 367.1,
+    "offset": 601.9,
+    "phase_deg": 224.7
+  },
+  "fill_flaw": 4.5,
+  "note": "三个来源减同一张 L_uniform、用同一 D4 零假设；measured 不含模型，是自检项",
+  "measured": {
+    "offset_0deg": {
+      "mean_dlog": -0.04405366869212288,
+      "sem": 0.0018033328569072701,
+      "t_stat": -24.429027909842038,
+      "n_angles": 360
+    },
+    "offset_90deg": {
+      "mean_dlog": 0.0067224433292419105,
+      "sem": 0.0020819180963016267,
+      "t_stat": 3.22896627930937,
+      "n_angles": 360
+    },
+    "offset_180deg": {
+      "mean_dlog": 0.00906000341447673,
+      "sem": 0.0018102546668713707,
+      "t_stat": 5.004822570149737,
+      "n_angles": 360
+    },
+    "offset_270deg": {
+      "mean_dlog": 0.00677357026956344,
+      "sem": 0.0020879189368840927,
+      "t_stat": 3.2441730135711024,
+      "n_angles": 360
+    },
+    "d4_contrast": {
+      "offset0_minus_pseudo_baseline": -0.05157234102988357,
+      "sem": 0.0021405839011522324,
+      "t_stat": -24.092651076242905,
+      "pseudo_baseline": 0.007518672337760694,
+      "pseudo_baseline_spread": 0.002337560085234819,
+      "offset0_mean": -0.04405366869212288,
+      "offset0_sem": 0.0018033328569072701
+    },
+    "arc_band": {
+      "n_inside": 37,
+      "dl_inside_mean": -0.03049166043335767,
+      "dl_inside_sem": 0.0059660078253743806,
+      "dl_outside_mean": -0.04560721143383902,
+      "dl_outside_sem": 0.0018740985393801255,
+      "inside_minus_outside": 0.015115551000481352,
+      "half_width_deg": 18.0
+    },
+    "peak_angle_deg": 200.0,
+    "d4_curve": {
+      "mean": -0.051572341029883575,
+      "sem": 0.0021994492458415208
+    }
+  },
+  "linear": {
+    "offset_0deg": {
+      "mean_dlog": -0.04632321285902276,
+      "sem": 0.0017532946101666198,
+      "t_stat": -26.420666892154852,
+      "n_angles": 360
+    },
+    "offset_90deg": {
+      "mean_dlog": 0.004480389921403471,
+      "sem": 0.00202846827165348,
+      "t_stat": 2.208755238627094,
+      "n_angles": 360
+    },
+    "offset_180deg": {
+      "mean_dlog": 0.006743331260751796,
+      "sem": 0.00176446643126536,
+      "t_stat": 3.821739615593548,
+      "n_angles": 360
+    },
+    "offset_270deg": {
+      "mean_dlog": 0.004501843791963511,
+      "sem": 0.0020357229458860095,
+      "t_stat": 2.2114226305015046,
+      "n_angles": 360
+    },
+    "d4_contrast": {
+      "offset0_minus_pseudo_baseline": -0.051565067850395684,
+      "sem": 0.0020826951326193732,
+      "t_stat": -24.758817093668,
+      "pseudo_baseline": 0.005241854991372926,
+      "pseudo_baseline_spread": 0.0022629413393483247,
+      "offset0_mean": -0.04632321285902276,
+      "offset0_sem": 0.0017532946101666198
+    },
+    "arc_band": {
+      "n_inside": 37,
+      "dl_inside_mean": -0.03095033358683767,
+      "dl_inside_sem": 0.0056499424127256755,
+      "dl_outside_mean": -0.04808419283757028,
+      "dl_outside_sem": 0.0018213575340972684,
+      "inside_minus_outside": 0.017133859250732613,
+      "half_width_deg": 18.0
+    },
+    "peak_angle_deg": 202.0,
+    "d4_curve": {
+      "mean": -0.051565067850395684,
+      "sem": 0.0021163591993019417
+    },
+    "contrast_retained_vs_measured": 0.9998589713140291,
+    "t_ratio_vs_measured": 1.0276501749565445,
+    "curve_rms_vs_measured": 0.008607270279955863,
+    "curve_maxabs_vs_measured": 0.029806376510042455
+  },
+  "cnn": {
+    "offset_0deg": {
+      "mean_dlog": -0.047411386117928264,
+      "sem": 0.0017326758172994151,
+      "t_stat": -27.36310257496676,
+      "n_angles": 360
+    },
+    "offset_90deg": {
+      "mean_dlog": 0.003945510694976496,
+      "sem": 0.0020353770073462726,
+      "t_stat": 1.9384667708910883,
+      "n_angles": 360
+    },
+    "offset_180deg": {
+      "mean_dlog": 0.006202763377342987,
+      "sem": 0.0017254736054990495,
+      "t_stat": 3.5948178851156607,
+      "n_angles": 360
+    },
+    "offset_270deg": {
+      "mean_dlog": 0.004067081664625125,
+      "sem": 0.0020023061852004363,
+      "t_stat": 2.0311986721541286,
+      "n_angles": 360
+    },
+    "d4_contrast": {
+      "offset0_minus_pseudo_baseline": -0.05214983803024313,
+      "sem": 0.002058822159911596,
+      "t_stat": -25.329938178090327,
+      "pseudo_baseline": 0.00473845191231487,
+      "pseudo_baseline_spread": 0.002257252682366491,
+      "offset0_mean": -0.047411386117928264,
+      "offset0_sem": 0.0017326758172994151
+    },
+    "arc_band": {
+      "n_inside": 37,
+      "dl_inside_mean": -0.035198890338491405,
+      "dl_inside_sem": 0.005762069606329285,
+      "dl_outside_mean": -0.04881034074281732,
+      "dl_outside_sem": 0.00180172343309594,
+      "inside_minus_outside": 0.013611450404325917,
+      "half_width_deg": 18.0
+    },
+    "peak_angle_deg": 70.0,
+    "d4_curve": {
+      "mean": -0.052149838030243124,
+      "sem": 0.0020692867237308093
+    },
+    "contrast_retained_vs_measured": 1.011197804653175,
+    "t_ratio_vs_measured": 1.0513553737997507,
+    "curve_rms_vs_measured": 0.01045990676474262,
+    "curve_maxabs_vs_measured": 0.03783780692455025
+  },
+  "paired_tests": {
+    "linear_minus_measured": {
+      "tag": "ΔL: linear - measured",
+      "mean_diff": -0.00226954416689988,
+      "sem": 0.00043819797787998974,
+      "t_stat": -5.179266636235927,
+      "n_angles": 360
+    },
+    "cnn_minus_measured": {
+      "tag": "ΔL: cnn - measured",
+      "mean_diff": -0.0033577174258053824,
+      "sem": 0.0005228361248171285,
+      "t_stat": -6.422122088407349,
+      "n_angles": 360
+    },
+    "cnn_minus_linear": {
+      "tag": "ΔL: cnn - linear",
+      "mean_diff": -0.0010881732589055025,
+      "sem": 0.00043297893588913446,
+      "t_stat": -2.5132244751604556,
+      "n_angles": 360
+    },
+    "d4: linear_minus_measured": {
+      "tag": "D4: linear - measured",
+      "mean_diff": 7.273179487886592e-06,
+      "sem": 0.0005040632112718178,
+      "t_stat": 0.014429101996028244,
+      "n_angles": 360
+    },
+    "d4: cnn_minus_measured": {
+      "tag": "D4: cnn - measured",
+      "mean_diff": -0.0005774970003595577,
+      "sem": 0.0005789293236919185,
+      "t_stat": -0.9975259098585184,
+      "n_angles": 360
+    },
+    "d4: cnn_minus_linear": {
+      "tag": "D4: cnn - linear",
+      "mean_diff": -0.0005847701798474447,
+      "sem": 0.0004980376868821581,
+      "t_stat": -1.1741484535201623,
+      "n_angles": 360
+    }
+  }
+}

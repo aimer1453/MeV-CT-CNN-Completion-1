@@ -1,0 +1,5 @@
+epoch,split,energy_MeV,n_samples,coverage,valid_coverage,rmse_valid,rmse_full,psnr,ssim,n_invariant_warn,lr,loss_train,loss_val
+-1,test,1.5,45,NaN,NaN,0.002070,0.001835,42.426487,0.933680,0,NaN,NaN,NaN
+-1,test,3,45,NaN,NaN,0.000966,0.000856,34.506356,0.853420,0,NaN,NaN,NaN
+-1,test,4.5,45,NaN,NaN,0.000772,0.000684,35.565055,0.867935,0,NaN,NaN,NaN
+-1,test,6,45,NaN,NaN,0.000732,0.000649,34.050246,0.857030,0,NaN,NaN,NaN

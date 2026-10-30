@@ -1,0 +1,52 @@
+{
+  "run_id": "20261022_2352_cnn_bs8_lr1e-4_linear_interp_image",
+  "method": "linear_interp_completed",
+  "domain": "image",
+  "method_note": "opposite 相位的 180 个视角用 (P[θ−1°] + P[θ+1°]) / 2 填充（与投影域基线 scripts/baseline_linear.py 逐字同一公式；θ−1°、θ+1° 落在实测相位内，无 GT 泄漏）→ 与 180 个实测视角交错成 360 视角正弦图 → hamming FBP",
+  "reference_run_id": "20261022_2352_cnn_bs8_lr1e-4",
+  "git_commit": "d91a7697dcd2febe38981dca38d6f3d4d40d5b59",
+  "git_dirty": true,
+  "geometry": {
+    "sensor_x": 1200,
+    "sensor_y": 32,
+    "recon_row": 16,
+    "output_size": [
+      1200,
+      1200
+    ],
+    "sinogram_shape": [
+      360,
+      1200
+    ]
+  },
+  "n_views": 360,
+  "n_completed": 180,
+  "held_out_restricted": false,
+  "recon": {
+    "filter_name": "hamming",
+    "circle": true,
+    "fov_restriction": "圆外置零（circle=True 自动）"
+  },
+  "metric_definition": {
+    "domain": "image",
+    "rmse_valid": "FOV 重建圆（r<=600，1130911 像素）上的 RMSE",
+    "rmse_full": "全部 1200x1200；圆外两图皆 0，故恒有 rmse_full <= rmse_valid",
+    "psnr": "10*log10(data_range^2/mse_valid)，data_range 逐档不同",
+    "psnr_common": "同上但 data_range 取四档统一值，跨能量比较必须用这个",
+    "ssim": "中心 848x848 裁剪上的 SSIM",
+    "reference": "dense = 360 视角全实测 FBP，与 baseline_recon.py 同一份代码",
+    "cross_domain_warning": "本文件 rmse_valid 是图像域，与投影域 rmse_valid 不同域、不可同表"
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "split": "test",
+    "n_samples": 180,
+    "energies_MeV": [
+      "1.5",
+      "3",
+      "4.5",
+      "6"
+    ]
+  },
+  "note": "本条为 **R7 规格之外的新增行**：R7 §7.4 只列了三方法 + dense，但论文 Table 4 原本有 Linear interpolation 行（且只有投影域数字），整表改图像域后该行会缺失，故补此版本。是否进 Table 4 由论文侧决定。"
+}

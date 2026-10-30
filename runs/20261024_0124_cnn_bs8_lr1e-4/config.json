@@ -1,0 +1,136 @@
+{
+  "run_id": "20261024_0124_cnn_bs8_lr1e-4",
+  "method": "cnn",
+  "git_commit": "24c66df3d86704a56d2bcfa9656497eff18b1bfd",
+  "git_dirty": true,
+  "seed": 20261022,
+  "batch": 8,
+  "batch_source": "config",
+  "cli_batch_provided": false,
+  "cli_batch_value": null,
+  "lr": 0.0001,
+  "epochs": 30,
+  "epochs_effective": 30,
+  "epochs_cli_provided": true,
+  "epochs_source": "cli",
+  "epoch_start": 0,
+  "warmup": 50,
+  "warmup_unit": "optimizer_step",
+  "warmup_note": "按 optimizer step 计，不按 epoch；batch 降级时不按比例缩放",
+  "steps_per_epoch": 135,
+  "warmup_end_step_index": 49,
+  "optimizer": "adam",
+  "amp": false,
+  "amp_note": "全程不启用 autocast / GradScaler（已裁决关闭）",
+  "norm": {
+    "norm_mean": 0.7202,
+    "norm_std": 0.9249,
+    "norm_scope": "global",
+    "zero_log_fill": 5.5,
+    "zero_fill_normalized": 5.167910044329116,
+    "zero_fill_normalized_derivation": "(zero_log_fill - norm_mean) / norm_std = (5.5 - 0.7202) / 0.9249 = 5.167910（运行时现算）",
+    "zero_fill_normalized_usage": "仅供人工核对；运行时代码由三值现算，不读本字段",
+    "domain": "-log((I + 1e-10) / (E + 1e-10))",
+    "fill_order_note": "填充发生在归一化之前的 -log 域；归一化域填充值不是常数 5.5",
+    "recomputed": true,
+    "source": "sparse_targets.csv split=train 的 target，排除 (I<=0)|(E<=0) 像素后统计；val/test 直接复用",
+    "norm_per_energy_reference": {
+      "_note": "仅参考，不用于训练。训练只使用上面的全局 norm。",
+      "1.5": {
+        "mean": 0.6315,
+        "std": 1.18,
+        "zero_log_fill": 6.3
+      },
+      "3": {
+        "mean": 0.6891,
+        "std": 0.93,
+        "zero_log_fill": 5.6
+      },
+      "4.5": {
+        "mean": 0.7547,
+        "std": 0.8104,
+        "zero_log_fill": 4.9
+      },
+      "6": {
+        "mean": 0.7875,
+        "std": 0.7729,
+        "zero_log_fill": 4.5
+      }
+    }
+  },
+  "coverage_definition": {
+    "coverage": "I_target > 0 像素数 / 总像素数（资产口径）",
+    "valid_coverage": "(I_target > 0) & (empty_proj > 0) 像素数 / 总像素数（评估口径）",
+    "rmse_valid_uses": "mask = (I_target > 0) & (empty_proj > 0)"
+  },
+  "mask": {
+    "per_pixel": true,
+    "zero_count_excluded_from_loss": true,
+    "denominator": "mask.sum() + eps",
+    "eps": 1e-08
+  },
+  "metric": {
+    "primary": "val_rmse_valid_phys",
+    "also_report": [
+      "rmse_full",
+      "coverage",
+      "valid_coverage"
+    ],
+    "invariant": "rmse_full >= rmse_valid",
+    "psnr_ssim": "NaN（口径待定，当前不作主指标）"
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "manifest": "train_manifest_first_run.csv",
+    "angles": "angles.csv",
+    "energies_MeV": [
+      1.5,
+      3.0,
+      4.5,
+      6.0
+    ],
+    "split_sizes": {
+      "train": 1080,
+      "val": 180,
+      "test": 180
+    },
+    "input_channels": {
+      "ch0": "ch0_file (theta_i)",
+      "ch1": "ch_prev_file (theta_{i-1})",
+      "ch2": "ch_next_file (theta_{i+1})",
+      "ch3": "sin(theta_target)",
+      "ch4": "cos(theta_target)"
+    }
+  },
+  "model": {
+    "name": "unet",
+    "in_channels": 5,
+    "out_channels": 1,
+    "input_shape": [
+      32,
+      1200
+    ],
+    "params_target": "约 1.95M",
+    "n_parameters_actual": 1950017,
+    "structure": "enc DoubleConv 32/64/128/256, 4x maxpool; dec ConvT+concat+单 Conv3x3; head 1x1",
+    "note": "参数量为实测值（models/unet.py --inspect）"
+  },
+  "env": {
+    "python": "3.12.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.4",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "total_memory_bytes": 8585216000,
+    "free_memory_at_start_bytes": 7386169344,
+    "compute_capability": "8.9"
+  },
+  "runtime": {
+    "num_workers": 0,
+    "train_batches_per_epoch": 135,
+    "warmup_end_step_index": 49,
+    "warmup_note": "warmup 固定 50 step；本 run 每 epoch 135 step，warmup 在第 1 epoch 的第 50 步结束（0-based 索引 49）",
+    "psnr_ssim": "NaN（口径待定，当前不作主指标，5 epoch 后按论文需要再补）"
+  }
+}

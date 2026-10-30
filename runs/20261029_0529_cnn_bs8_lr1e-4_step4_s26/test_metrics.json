@@ -1,0 +1,62 @@
+{
+  "run_id": "20261029_0529_cnn_bs8_lr1e-4_step4_s26",
+  "git_commit": "e5fe0ad235d0f94c81c8626933ccb18ea998585a",
+  "git_dirty": true,
+  "best_epoch": 92,
+  "best_val_rmse_valid_phys": 0.38556771738313084,
+  "best_note": "test 阶段加载 best.pt，该权重对应 epoch=92，val_rmse_valid_phys=0.385568",
+  "invariant_warn": {
+    "n_warn": 0,
+    "n_samples": 180,
+    "ratio": 0.0,
+    "note": "逐样本 rmse_full < rmse_valid 的告警数（不中断）；池化行仍硬断言"
+  },
+  "overall": {
+    "n_samples": 180,
+    "coverage": 0.9437721354166667,
+    "valid_coverage": 0.9379428530092595,
+    "rmse_valid": 0.39093394511098384,
+    "rmse_full": 1.2150710097979986,
+    "psnr": NaN,
+    "ssim": NaN
+  },
+  "per_energy": {
+    "1.5": {
+      "n_samples": 45,
+      "coverage": 0.8263096064814814,
+      "valid_coverage": 0.8066469907407411,
+      "rmse_valid": 0.5150314738638583,
+      "rmse_full": 2.1327305513270223,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "3": {
+      "n_samples": 45,
+      "coverage": 0.9605104166666665,
+      "valid_coverage": 0.9570422453703705,
+      "rmse_valid": 0.43226017363487035,
+      "rmse_full": 1.0051002307619492,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "4.5": {
+      "n_samples": 45,
+      "coverage": 0.9902980324074075,
+      "valid_coverage": 0.9901116898148149,
+      "rmse_valid": 0.3276067846115835,
+      "rmse_full": 0.49988327340868993,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "6": {
+      "n_samples": 45,
+      "coverage": 0.9979704861111112,
+      "valid_coverage": 0.9979704861111112,
+      "rmse_valid": 0.27290227887578605,
+      "rmse_full": 0.31135328797193657,
+      "psnr": NaN,
+      "ssim": NaN
+    }
+  },
+  "psnr_ssim_note": "PSNR/SSIM 口径待定，当前不作主指标；test_per_sample.csv 中同样为 NaN"
+}

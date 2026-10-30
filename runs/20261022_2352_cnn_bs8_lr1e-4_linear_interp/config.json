@@ -1,0 +1,85 @@
+{
+  "run_id": "20261022_2352_cnn_bs8_lr1e-4_linear_interp",
+  "method": "linear_interp",
+  "method_note": "target 投影 = (P[ch0] + P[ch_next]) / 2，两点算术平均；target 恰为 ch0 与 ch_next 的中点，故线性插值退化为均值",
+  "reference_run_id": "20261022_2352_cnn_bs8_lr1e-4",
+  "git_commit": "548f98a64d171b84f5b66071c7a140f312b439ec",
+  "git_dirty": true,
+  "seed": 20261022,
+  "batch": null,
+  "lr": null,
+  "optimizer": null,
+  "warmup": null,
+  "warmup_unit": null,
+  "epochs": null,
+  "null_fields_note": "基线无训练过程，optimizer/batch/lr/warmup/epochs 一律 null",
+  "norm": {
+    "norm_mean": 0.7202,
+    "norm_std": 0.9249,
+    "norm_scope": "global",
+    "zero_log_fill": 5.5,
+    "zero_fill_normalized": 5.167910044329116,
+    "zero_fill_normalized_derivation": "(zero_log_fill - norm_mean) / norm_std = (5.5 - 0.7202) / 0.9249 = 5.167910（运行时现算）",
+    "zero_fill_normalized_usage": "仅供人工核对；运行时代码由三值现算，不读本字段",
+    "domain": "-log((I + 1e-10) / (E + 1e-10))",
+    "fill_order_note": "填充发生在归一化之前的 -log 域；归一化域填充值不是常数 5.5",
+    "recomputed": true,
+    "source": "sparse_targets.csv split=train 的 target，排除 (I<=0)|(E<=0) 像素后统计；val/test 直接复用",
+    "norm_per_energy_reference": {
+      "_note": "仅参考，不用于训练。训练只使用上面的全局 norm。",
+      "1.5": {
+        "mean": 0.6315,
+        "std": 1.18,
+        "zero_log_fill": 6.3
+      },
+      "3": {
+        "mean": 0.6891,
+        "std": 0.93,
+        "zero_log_fill": 5.6
+      },
+      "4.5": {
+        "mean": 0.7547,
+        "std": 0.8104,
+        "zero_log_fill": 4.9
+      },
+      "6": {
+        "mean": 0.7875,
+        "std": 0.7729,
+        "zero_log_fill": 4.5
+      }
+    }
+  },
+  "coverage_definition": {
+    "coverage": "I_target > 0 像素数 / 总像素数（资产口径）",
+    "valid_coverage": "(I_target > 0) & (empty_proj > 0) 像素数 / 总像素数（评估口径）",
+    "rmse_valid_uses": "mask = (I_target > 0) & (empty_proj > 0)"
+  },
+  "log_eps": 1e-10,
+  "zero_log_fill": 5.5,
+  "domain": "projection (-log physical)",
+  "metric": {
+    "primary": "rmse_valid",
+    "also_report": [
+      "rmse_full",
+      "coverage",
+      "valid_coverage"
+    ],
+    "rmse_valid": "mask=(I_target>0)&(empty_proj>0) 上的 RMSE（物理域）",
+    "rmse_full": "全部 32x1200 像素上的 RMSE（物理域）",
+    "psnr_ssim": "投影域不适用，填 NaN"
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "split": "test",
+    "n_samples": 180,
+    "energies_MeV": [
+      "1.5",
+      "3",
+      "4.5",
+      "6"
+    ]
+  },
+  "cross_check_with_cnn": {
+    "checked": true
+  }
+}

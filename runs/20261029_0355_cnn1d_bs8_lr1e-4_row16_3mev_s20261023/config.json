@@ -1,0 +1,113 @@
+{
+  "run_id": "20261029_0355_cnn1d_bs8_lr1e-4_row16_3mev_s20261023",
+  "method": "cnn1d",
+  "ablation_group": "C_row1d_true_single_row",
+  "ablation_note": "C 组：1D U-Net（无行轴，输入 (5,1200)），只训练 Row 16。对照 A 组 cnn/base32_3mev（2D，32 行输入）与 B 组 cnn/row16_3mev（2D，输入塌缩到 Row 16）。三组同 CSV、同 split、同 batch/lr/epochs/warmup/优化器/loss 口径，唯一自变量是架构维度。",
+  "git_commit": "e5fe0ad235d0f94c81c8626933ccb18ea998585a",
+  "git_dirty": true,
+  "seed": 20261023,
+  "seed_source": "cli",
+  "batch": 8,
+  "lr": 0.0001,
+  "epochs": 100,
+  "warmup": 50,
+  "warmup_unit": "step",
+  "optimizer": "adam",
+  "scheduler": "LambdaLR(min((step+1)/warmup, 1.0))",
+  "amp": false,
+  "norm": {
+    "norm_mean": 0.7202,
+    "norm_std": 0.9249,
+    "norm_scope": "global",
+    "zero_log_fill": 5.5,
+    "zero_fill_normalized": 5.1678,
+    "zero_fill_normalized_derivation": "(zero_log_fill - norm_mean) / norm_std = (5.50 - 0.7202) / 0.9249 = 5.1679；本字段按裁决书写为 5.1678（截断差 1e-4），运行时一律以现算 5.1679 为准",
+    "zero_fill_normalized_usage": "此字段仅供人工核对；运行时代码必须由 norm_mean / norm_std / zero_log_fill 现算，禁止读本字段当输入",
+    "domain": "-log((I + 1e-10) / (E + 1e-10))",
+    "fill_order": "先在 -log 域填 zero_log_fill，再归一化；归一化域填充值不是常数 5.5",
+    "invalid_rule": "(I <= 0) | (empty_proj <= 0)",
+    "scope_note": "全局归一化；1.5 MeV 归一化后 std 约 1.28、6 MeV 约 0.84；若 5 epoch 后 1.5 MeV val_rmse_phys 异常，再提交分档方案等裁决",
+    "source": "新电脑 sparse_targets.csv 中 split=train 的 1080 个 target 文件，排除无效像素后统计",
+    "recomputed": true,
+    "norm_per_energy_reference": {
+      "_note": "仅参考，不用于训练。训练只使用上面的全局 norm（norm_scope=global）。",
+      "1.5": {
+        "mean": 0.6315,
+        "std": 1.18,
+        "zero_log_fill": 6.3
+      },
+      "3": {
+        "mean": 0.6891,
+        "std": 0.93,
+        "zero_log_fill": 5.6
+      },
+      "4.5": {
+        "mean": 0.7547,
+        "std": 0.8104,
+        "zero_log_fill": 4.9
+      },
+      "6": {
+        "mean": 0.7875,
+        "std": 0.7729,
+        "zero_log_fill": 4.5
+      }
+    }
+  },
+  "mask": {
+    "per_pixel": true,
+    "zero_count_excluded_from_loss": true,
+    "denominator": "mask.sum() + eps",
+    "eps": 1e-08
+  },
+  "metric": {
+    "primary": "非零像素 -log 物理域 RMSE（rmse_valid，mask=I>0 且 E>0，仅 Row 16 的 1200 像素）",
+    "secondary": "rmse_full = 整行 1200 像素（含零计数像素）",
+    "coverage_note": "train_log.csv 的 coverage / valid_coverage 沿用 32x1200 口径（数据级统计，与模型无关，便于与 A/B 组日志同列横比）；**模型指标一律只在 Row 16 的 1200 像素上算**"
+  },
+  "data": {
+    "csv": "csv_data/sparse_targets_3MeV_even90.csv",
+    "row": 16,
+    "split_sizes": {
+      "train": 90,
+      "val": 225,
+      "test": 45
+    },
+    "energies": [
+      3.0
+    ],
+    "input_channels": [
+      "θ−3°",
+      "θ−1°",
+      "θ+1°",
+      "sinθ",
+      "cosθ"
+    ]
+  },
+  "model": {
+    "name": "UNet1D",
+    "in_channels": 5,
+    "out_channels": 1,
+    "length": 1200,
+    "enc_channels": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "n_downsample": 4,
+    "n_parameters": 681345,
+    "n_parameters_2d_unet": 1950017,
+    "param_ratio_vs_2d": 0.349405
+  },
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.4",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "total_memory_bytes": 8585216000,
+    "free_memory_at_start_bytes": 7407140864,
+    "compute_capability": "8.9"
+  }
+}

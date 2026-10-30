@@ -1,0 +1,35 @@
+{
+  "run_id": "20261030_0950_cnn_2view_bs8_lr1e-4_flawspan_v2_s4_s20261023",
+  "git_commit": "b65ee2810f0be9d68aaa2021ac7957f26e25cda4",
+  "git_dirty": true,
+  "best_epoch": 96,
+  "best_val_rmse_valid_phys": 0.37675377753462924,
+  "best_note": "test 阶段加载 best.pt，该权重对应 epoch=96，val_rmse_valid_phys=0.376754",
+  "invariant_warn": {
+    "n_warn": 0,
+    "n_samples": 45,
+    "ratio": 0.0,
+    "note": "逐样本 rmse_full < rmse_valid 的告警数（不中断）；池化行仍硬断言"
+  },
+  "overall": {
+    "n_samples": 45,
+    "coverage": 0.9474525462962962,
+    "valid_coverage": 0.9446793981481483,
+    "rmse_valid": 0.39869885774594777,
+    "rmse_full": 1.1468342161375396,
+    "psnr": NaN,
+    "ssim": NaN
+  },
+  "per_energy": {
+    "3": {
+      "n_samples": 45,
+      "coverage": 0.9474525462962962,
+      "valid_coverage": 0.9446793981481483,
+      "rmse_valid": 0.39869885774594777,
+      "rmse_full": 1.1468342161375396,
+      "psnr": NaN,
+      "ssim": NaN
+    }
+  },
+  "psnr_ssim_note": "PSNR/SSIM 口径待定，当前不作主指标；test_per_sample.csv 中同样为 NaN"
+}

@@ -1,0 +1,121 @@
+{
+  "run_id": "20261024_1633_cnn_bs8_lr1e-4_linear_interp",
+  "method": "linear_interp",
+  "git_commit": "bcf69db099ba69d8913294c7300ac1cede1d802a",
+  "git_dirty": true,
+  "reference_run_id": "20261024_1633_cnn_bs8_lr1e-4",
+  "best_epoch": null,
+  "best_val_rmse_valid_phys": null,
+  "best_note": "基线无训练过程，不涉及 best 权重",
+  "invariant_warn": {
+    "n_warn": 0,
+    "n_samples": 180,
+    "ratio": 0.0,
+    "note": "逐样本 rmse_full < rmse_valid 硬断言通过（本脚本直接 raise，不降级为告警）"
+  },
+  "overall": {
+    "n_samples": 180,
+    "coverage": 0.9437721354166667,
+    "valid_coverage": 0.9379428530092595,
+    "rmse_valid": 0.8019112074934616,
+    "rmse_full": 0.9930496098786803,
+    "psnr": NaN,
+    "ssim": NaN
+  },
+  "per_energy": {
+    "1.5": {
+      "n_samples": 45,
+      "coverage": 0.8263096064814814,
+      "valid_coverage": 0.8066469907407411,
+      "rmse_valid": 1.3444428515343985,
+      "rmse_full": 1.589566097680656,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "3": {
+      "n_samples": 45,
+      "coverage": 0.9605104166666665,
+      "valid_coverage": 0.9570422453703705,
+      "rmse_valid": 0.7960454561942522,
+      "rmse_full": 0.9828694185395409,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "4.5": {
+      "n_samples": 45,
+      "coverage": 0.9902980324074075,
+      "valid_coverage": 0.9901116898148149,
+      "rmse_valid": 0.4907600063721244,
+      "rmse_full": 0.5708261285489277,
+      "psnr": NaN,
+      "ssim": NaN
+    },
+    "6": {
+      "n_samples": 45,
+      "coverage": 0.9979704861111112,
+      "valid_coverage": 0.9979704861111112,
+      "rmse_valid": 0.3314767262415839,
+      "rmse_full": 0.3549577001428136,
+      "psnr": NaN,
+      "ssim": NaN
+    }
+  },
+  "psnr_ssim_note": "投影域基线不产出图像，PSNR/SSIM 填 NaN；图像域对比见 baseline_recon.py",
+  "cross_check_with_cnn": {
+    "checked": true,
+    "cnn_run_id": "20261024_1633_cnn_bs8_lr1e-4",
+    "tol": 1e-09,
+    "pairs": {
+      "1.5 MeV / coverage": {
+        "baseline": 0.8263096064814814,
+        "cnn": 0.8263096064814814,
+        "abs_diff": 0.0
+      },
+      "1.5 MeV / valid_coverage": {
+        "baseline": 0.8066469907407411,
+        "cnn": 0.8066469907407411,
+        "abs_diff": 0.0
+      },
+      "3 MeV / coverage": {
+        "baseline": 0.9605104166666665,
+        "cnn": 0.9605104166666665,
+        "abs_diff": 0.0
+      },
+      "3 MeV / valid_coverage": {
+        "baseline": 0.9570422453703705,
+        "cnn": 0.9570422453703705,
+        "abs_diff": 0.0
+      },
+      "4.5 MeV / coverage": {
+        "baseline": 0.9902980324074075,
+        "cnn": 0.9902980324074075,
+        "abs_diff": 0.0
+      },
+      "4.5 MeV / valid_coverage": {
+        "baseline": 0.9901116898148149,
+        "cnn": 0.9901116898148149,
+        "abs_diff": 0.0
+      },
+      "6 MeV / coverage": {
+        "baseline": 0.9979704861111112,
+        "cnn": 0.9979704861111112,
+        "abs_diff": 0.0
+      },
+      "6 MeV / valid_coverage": {
+        "baseline": 0.9979704861111112,
+        "cnn": 0.9979704861111112,
+        "abs_diff": 0.0
+      },
+      "overall / coverage": {
+        "baseline": 0.9437721354166667,
+        "cnn": 0.9437721354166667,
+        "abs_diff": 0.0
+      },
+      "overall / valid_coverage": {
+        "baseline": 0.9379428530092595,
+        "cnn": 0.9379428530092595,
+        "abs_diff": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "run_id": "20261030_0109_cnn_bs8_lr1e-4_flaw12_4.5",
+  "method": "cnn",
+  "git_commit": "e281a786d52a2b9482288cba4852123da50d5e61",
+  "git_dirty": true,
+  "seed": 20261022,
+  "seed_source": "cli",
+  "batch": 8,
+  "batch_source": "cli_consistent",
+  "cli_batch_provided": true,
+  "cli_batch_value": 8,
+  "lr": 0.0001,
+  "epochs": 100,
+  "epochs_effective": 100,
+  "epochs_cli_provided": true,
+  "epochs_source": "cli",
+  "epoch_start": 0,
+  "warmup": 50,
+  "warmup_unit": "optimizer_step",
+  "warmup_note": "按 optimizer step 计，不按 epoch；batch 降级时不按比例缩放",
+  "steps_per_epoch": 34,
+  "warmup_end_step_index": 49,
+  "optimizer": "adam",
+  "amp": false,
+  "amp_note": "全程不启用 autocast / GradScaler（已裁决关闭）",
+  "norm": {
+    "norm_mean": 0.774,
+    "norm_std": 0.8177,
+    "norm_scope": "global",
+    "zero_log_fill": 5.1,
+    "zero_fill_normalized": 5.290448819860584,
+    "zero_fill_normalized_derivation": "(zero_log_fill - norm_mean) / norm_std = (5.1 - 0.774) / 0.8177 = 5.290449（运行时现算）",
+    "zero_fill_normalized_usage": "仅供人工核对；运行时代码由三值现算，不读本字段",
+    "domain": "-log((I + 1e-10) / (E + 1e-10))",
+    "fill_order_note": "填充发生在归一化之前的 -log 域；归一化域填充值不是常数 5.5",
+    "recomputed": true,
+    "source": "sparse_targets_flaw12_4.5.csv split=train 的 target，排除 (I<=0)|(E<=0) 像素后统计；val/test 直接复用",
+    "norm_per_energy_reference": {
+      "_note": "仅参考，不用于训练。训练只使用上面的全局 norm。",
+      "1.5": {
+        "mean": 0.6315,
+        "std": 1.18,
+        "zero_log_fill": 6.3
+      },
+      "3": {
+        "mean": 0.6891,
+        "std": 0.93,
+        "zero_log_fill": 5.6
+      },
+      "4.5": {
+        "mean": 0.7547,
+        "std": 0.8104,
+        "zero_log_fill": 4.9
+      },
+      "6": {
+        "mean": 0.7875,
+        "std": 0.7729,
+        "zero_log_fill": 4.5
+      }
+    }
+  },
+  "coverage_definition": {
+    "coverage": "I_target > 0 像素数 / 总像素数（资产口径）",
+    "valid_coverage": "(I_target > 0) & (empty_proj > 0) 像素数 / 总像素数（评估口径）",
+    "rmse_valid_uses": "mask = (I_target > 0) & (empty_proj > 0)"
+  },
+  "mask": {
+    "per_pixel": true,
+    "loss_mode": "masked",
+    "zero_count_excluded_from_loss": true,
+    "denominator": "mask.sum() + eps",
+    "eps": 1e-08,
+    "loss_mode_note": "默认 masked；unmasked 为消融分支，零计数像素的 zero_fill 伪值参与训练。评估侧 rmse_valid/rmse_full 两种模式恒为 masked 口径，不受影响。"
+  },
+  "metric": {
+    "primary": "val_rmse_valid_phys",
+    "also_report": [
+      "rmse_full",
+      "coverage",
+      "valid_coverage"
+    ],
+    "invariant": "rmse_full >= rmse_valid",
+    "psnr_ssim": "NaN（口径待定，当前不作主指标）"
+  },
+  "data": {
+    "targets": "sparse_targets_flaw12_4.5.csv",
+    "manifest": "train_manifest_first_run.csv",
+    "angles": "angles.csv",
+    "energies_MeV": [
+      4.5
+    ],
+    "split_sizes": {
+      "train": 270,
+      "val": 45,
+      "test": 45
+    },
+    "input_channels": {
+      "ch0": "ch0_file (theta_i = target-1deg, 三元组中心)",
+      "ch1": "ch_prev_file (theta_{i-1} = target-3deg, 左侧额外上下文)",
+      "ch2": "ch_next_file (theta_{i+1} = target+1deg)",
+      "ch3": "sin(theta_target) 广播图",
+      "ch4": "cos(theta_target) 广播图"
+    },
+    "single_row_ablation": false
+  },
+  "model": {
+    "name": "unet",
+    "in_channels": 5,
+    "out_channels": 1,
+    "input_shape": [
+      32,
+      1200
+    ],
+    "params_target": "约 1.95M",
+    "n_parameters_actual": 1950017,
+    "structure": "enc DoubleConv 32/64/128/256, 4x maxpool; dec ConvT+concat+单 Conv3x3; head 1x1",
+    "note": "参数量为实测值（models/unet.py --inspect）"
+  },
+  "env": {
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.4",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "total_memory_bytes": 8585216000,
+    "free_memory_at_start_bytes": 7386169344,
+    "compute_capability": "8.9"
+  },
+  "runtime": {
+    "num_workers": 0,
+    "loss_mode": "masked",
+    "loss_mode_note": "masked = 论文正文口径（零计数像素不参与训练 loss）；unmasked = 消融（全像素 MSE，拟合 zero_fill 伪值）。两种模式的评估指标均为 masked 物理域 RMSE，可直接对照。",
+    "input_views": 3,
+    "input_channels": 5,
+    "input_views_note": "3 = θ−3°/θ−1°/θ+1° + sin/cos（论文正文配置，5 通道）；2 = θ−1°/θ+1° + sin/cos（两视角消融，4 通道，丢弃 θ−3° 左上下文）。监督 y 与 mask 两配置完全一致。",
+    "train_batches_per_epoch": 34,
+    "warmup_end_step_index": 49,
+    "warmup_note": "warmup 固定 50 step；本 run 每 epoch 34 step，warmup 在第 1 epoch 的第 50 步结束（0-based 索引 49）",
+    "psnr_ssim": "NaN（口径待定，当前不作主指标，5 epoch 后按论文需要再补）"
+  },
+  "input_views": 3,
+  "input_channels": 5,
+  "input_views_note": "3 = θ−3°/θ−1°/θ+1° + sin/cos（论文正文配置，5 通道）；2 = θ−1°/θ+1° + sin/cos（两视角消融，4 通道，丢弃 θ−3° 左上下文）。监督 y 与 mask 两配置完全一致。",
+  "loss_mode": "masked"
+}

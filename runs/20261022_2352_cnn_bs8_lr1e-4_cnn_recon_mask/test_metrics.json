@@ -1,0 +1,476 @@
+{
+  "method": "cnn_completed_mask_postprocess",
+  "domain": "display_0_1",
+  "cnn_run_id": "20261022_2352_cnn_bs8_lr1e-4",
+  "best_epoch": 4,
+  "per_energy": {
+    "1.5": {
+      "n_completed_sinograms": 2,
+      "n_predicted_views_total": 360,
+      "recon_stats": {
+        "min": 0.0,
+        "max": 0.005619841627776623,
+        "mean": 0.000735989636248774,
+        "nonzero_fraction": 0.3919388888888889
+      },
+      "mask_label_fraction": {
+        "black": 0.8037486111111111,
+        "gray": 0.08571041666666666,
+        "white": 0.11054097222222223
+      },
+      "mask_postprocess_seconds": 4.68,
+      "metrics": {
+        "before_any_postprocess": {
+          "Ring_Index": 1.383383411964468,
+          "gray_band": {
+            "n_px": 123423,
+            "bg_mean": 0.421677499013833,
+            "bg_std": 0.10667768066487769,
+            "fuel_mean": 0.9715305010893247,
+            "Uniformity": 0.2529840420333591,
+            "CNR": 5.154339193588524,
+            "SNR": 9.107157223166148
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0256235294117647,
+            "bg_std": 0.0150546583291913,
+            "fuel_mean": 0.9715305010893247,
+            "Uniformity": 0.5875323501279903,
+            "CNR": 62.83147200549266,
+            "SNR": 64.53350414937458
+          }
+        },
+        "after_ring_and_mask": {
+          "Ring_Index": 1.5182668897646208,
+          "gray_band": {
+            "n_px": 123423,
+            "bg_mean": 0.42221799635972124,
+            "bg_std": 0.1003807713127099,
+            "fuel_mean": 0.9703823529411766,
+            "Uniformity": 0.23774630593842438,
+            "CNR": 5.460849670753146,
+            "SNR": 9.667013349081294
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9703823529411766,
+            "Uniformity": 0.0,
+            "CNR": 97038235.29411766,
+            "SNR": 97038235.29411766
+          }
+        },
+        "after_enhance": {
+          "Ring_Index": 1.726723582654886,
+          "gray_band": {
+            "n_px": 123423,
+            "bg_mean": 0.4480616874250247,
+            "bg_std": 0.07008893445624163,
+            "fuel_mean": 0.9788050108932462,
+            "Uniformity": 0.1564269716850095,
+            "CNR": 7.572425688327758,
+            "SNR": 13.965184074135115
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9788050108932462,
+            "Uniformity": 0.0,
+            "CNR": 97880501.08932462,
+            "SNR": 97880501.08932462
+          }
+        }
+      },
+      "before_after": {
+        "Uniformity": {
+          "before": 0.2529840420333591,
+          "after": 0.1564269716850095
+        },
+        "CNR": {
+          "before": 5.154339193588524,
+          "after": 7.572425688327758
+        },
+        "SNR": {
+          "before": 9.107157223166148,
+          "after": 13.965184074135115
+        },
+        "Ring_Index": {
+          "before": 1.383383411964468,
+          "after": 1.726723582654886
+        }
+      }
+    },
+    "3": {
+      "n_completed_sinograms": 2,
+      "n_predicted_views_total": 360,
+      "recon_stats": {
+        "min": 0.0,
+        "max": 0.004105695988982916,
+        "mean": 0.0005585566412952825,
+        "nonzero_fraction": 0.391725
+      },
+      "mask_label_fraction": {
+        "black": 0.8071784722222223,
+        "gray": 0.082875,
+        "white": 0.10994652777777777
+      },
+      "mask_postprocess_seconds": 4.61,
+      "metrics": {
+        "before_any_postprocess": {
+          "Ring_Index": 1.4023451208671864,
+          "gray_band": {
+            "n_px": 119340,
+            "bg_mean": 0.42070078240781816,
+            "bg_std": 0.10700810639745381,
+            "fuel_mean": 0.99940522875817,
+            "Uniformity": 0.254356797820629,
+            "CNR": 5.408042546986854,
+            "SNR": 9.33952734058171
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.031638039215686274,
+            "bg_std": 0.015724031378229465,
+            "fuel_mean": 0.99940522875817,
+            "Uniformity": 0.49699750041584184,
+            "CNR": 61.546975504808465,
+            "SNR": 63.55905614328162
+          }
+        },
+        "after_ring_and_mask": {
+          "Ring_Index": 1.5879864582162333,
+          "gray_band": {
+            "n_px": 119340,
+            "bg_mean": 0.4215549903554517,
+            "bg_std": 0.10078810408837222,
+            "fuel_mean": 0.998152505446623,
+            "Uniformity": 0.2390864869433135,
+            "CNR": 5.72088802639569,
+            "SNR": 9.903474377657579
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.998152505446623,
+            "Uniformity": 0.0,
+            "CNR": 99815250.5446623,
+            "SNR": 99815250.5446623
+          }
+        },
+        "after_enhance": {
+          "Ring_Index": 1.931406039895083,
+          "gray_band": {
+            "n_px": 119340,
+            "bg_mean": 0.44810207776759103,
+            "bg_std": 0.07010959724141179,
+            "fuel_mean": 0.9874684095860566,
+            "Uniformity": 0.1564589836898378,
+            "CNR": 7.693187182767114,
+            "SNR": 14.084637590193012
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9874684095860566,
+            "Uniformity": 0.0,
+            "CNR": 98746840.95860566,
+            "SNR": 98746840.95860566
+          }
+        }
+      },
+      "before_after": {
+        "Uniformity": {
+          "before": 0.254356797820629,
+          "after": 0.1564589836898378
+        },
+        "CNR": {
+          "before": 5.408042546986854,
+          "after": 7.693187182767114
+        },
+        "SNR": {
+          "before": 9.33952734058171,
+          "after": 14.084637590193012
+        },
+        "Ring_Index": {
+          "before": 1.4023451208671864,
+          "after": 1.931406039895083
+        }
+      }
+    },
+    "4.5": {
+      "n_completed_sinograms": 2,
+      "n_predicted_views_total": 360,
+      "recon_stats": {
+        "min": 0.0,
+        "max": 0.004357419908046722,
+        "mean": 0.0005543818055087327,
+        "nonzero_fraction": 0.41386319444444447
+      },
+      "mask_label_fraction": {
+        "black": 0.8075097222222222,
+        "gray": 0.08217916666666666,
+        "white": 0.11031111111111111
+      },
+      "mask_postprocess_seconds": 4.92,
+      "metrics": {
+        "before_any_postprocess": {
+          "Ring_Index": 1.3933636303643442,
+          "gray_band": {
+            "n_px": 118338,
+            "bg_mean": 0.41951575066302266,
+            "bg_std": 0.10569269209281454,
+            "fuel_mean": 0.9999978213507625,
+            "Uniformity": 0.25193974101419403,
+            "CNR": 5.492167947205918,
+            "SNR": 9.461370572895467
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.03872823529411765,
+            "bg_std": 0.01571969455080069,
+            "fuel_mean": 0.9999978213507625,
+            "Uniformity": 0.4058974123774288,
+            "CNR": 61.150614055763675,
+            "SNR": 63.614288558612074
+          }
+        },
+        "after_ring_and_mask": {
+          "Ring_Index": 1.6460460820617242,
+          "gray_band": {
+            "n_px": 118338,
+            "bg_mean": 0.4200350673825954,
+            "bg_std": 0.09910164524832693,
+            "fuel_mean": 0.9998551198257081,
+            "Uniformity": 0.2359365933575559,
+            "CNR": 5.850760524536259,
+            "SNR": 10.08918687907171
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9998551198257081,
+            "Uniformity": 0.0,
+            "CNR": 99985511.98257081,
+            "SNR": 99985511.98257081
+          }
+        },
+        "after_enhance": {
+          "Ring_Index": 1.9818897913040683,
+          "gray_band": {
+            "n_px": 118338,
+            "bg_mean": 0.44800755164916445,
+            "bg_std": 0.0699657645438356,
+            "fuel_mean": 0.984309368191721,
+            "Uniformity": 0.15617094561146252,
+            "CNR": 7.665202308402201,
+            "SNR": 14.068440957157167
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.984309368191721,
+            "Uniformity": 0.0,
+            "CNR": 98430936.8191721,
+            "SNR": 98430936.8191721
+          }
+        }
+      },
+      "before_after": {
+        "Uniformity": {
+          "before": 0.25193974101419403,
+          "after": 0.15617094561146252
+        },
+        "CNR": {
+          "before": 5.492167947205918,
+          "after": 7.665202308402201
+        },
+        "SNR": {
+          "before": 9.461370572895467,
+          "after": 14.068440957157167
+        },
+        "Ring_Index": {
+          "before": 1.3933636303643442,
+          "after": 1.9818897913040683
+        }
+      }
+    },
+    "6": {
+      "n_completed_sinograms": 2,
+      "n_predicted_views_total": 360,
+      "recon_stats": {
+        "min": 0.0,
+        "max": 0.004033314064145088,
+        "mean": 0.0005737001600291651,
+        "nonzero_fraction": 0.4193236111111111
+      },
+      "mask_label_fraction": {
+        "black": 0.8053256944444445,
+        "gray": 0.08451319444444444,
+        "white": 0.11016111111111111
+      },
+      "mask_postprocess_seconds": 4.93,
+      "metrics": {
+        "before_any_postprocess": {
+          "Ring_Index": 1.364982645798871,
+          "gray_band": {
+            "n_px": 121699,
+            "bg_mean": 0.42108474315206157,
+            "bg_std": 0.1051710122079708,
+            "fuel_mean": 0.9814106753812636,
+            "Uniformity": 0.24976209995898757,
+            "CNR": 5.327759685754348,
+            "SNR": 9.331569236253783
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.029035686274509805,
+            "bg_std": 0.014687310201968846,
+            "fuel_mean": 0.9814106753812636,
+            "Uniformity": 0.5058363354924164,
+            "CNR": 64.8433462340589,
+            "SNR": 66.82026822358681
+          }
+        },
+        "after_ring_and_mask": {
+          "Ring_Index": 1.6002866794835182,
+          "gray_band": {
+            "n_px": 121699,
+            "bg_mean": 0.4212345502379786,
+            "bg_std": 0.09879721681255842,
+            "fuel_mean": 0.9798921568627452,
+            "Uniformity": 0.23454204886878804,
+            "CNR": 5.654587933775424,
+            "SNR": 9.918215201746818
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9798921568627452,
+            "Uniformity": 0.0,
+            "CNR": 97989215.68627451,
+            "SNR": 97989215.68627451
+          }
+        },
+        "after_enhance": {
+          "Ring_Index": 1.9455191531722063,
+          "gray_band": {
+            "n_px": 121699,
+            "bg_mean": 0.4479993632634937,
+            "bg_std": 0.06999597058417362,
+            "fuel_mean": 0.9767407407407407,
+            "Uniformity": 0.15624122434431406,
+            "CNR": 7.553881995286992,
+            "SNR": 13.954240409078373
+          },
+          "corners_orig": {
+            "n_px": 10000,
+            "bg_mean": 0.0,
+            "bg_std": 0.0,
+            "fuel_mean": 0.9767407407407407,
+            "Uniformity": 0.0,
+            "CNR": 97674074.07407406,
+            "SNR": 97674074.07407406
+          }
+        }
+      },
+      "before_after": {
+        "Uniformity": {
+          "before": 0.24976209995898757,
+          "after": 0.15624122434431406
+        },
+        "CNR": {
+          "before": 5.327759685754348,
+          "after": 7.553881995286992
+        },
+        "SNR": {
+          "before": 9.331569236253783,
+          "after": 13.954240409078373
+        },
+        "Ring_Index": {
+          "before": 1.364982645798871,
+          "after": 1.9455191531722063
+        }
+      }
+    }
+  },
+  "overall": {
+    "n_energies": 4,
+    "Uniformity": {
+      "before": 0.25226067020679244,
+      "after": 0.15632453133265597
+    },
+    "CNR": {
+      "before": 5.345577343383911,
+      "after": 7.621174293696017
+    },
+    "SNR": {
+      "before": 9.309906093224278,
+      "after": 14.018125757640917
+    },
+    "Ring_Index": {
+      "before": 1.3860187022487171,
+      "after": 1.8963846417565609
+    }
+  },
+  "roi_sanity_check": {
+    "why_changed": "原口径四角 50x50 背景 ROI 在增强后全零（apply_mask_to_array 把掩膜黑区逐像素置零，黑区占 80.5% 且含 FOV 圆外全部像素），导致 Uniformity=0、CNR/SNR ~9.8e7 的废值。主表改用灰色带 ROI。",
+    "corners_orig_after_enhance": {
+      "1.5": {
+        "n_px": 10000,
+        "bg_mean": 0.0,
+        "bg_std": 0.0,
+        "fuel_mean": 0.9788050108932462,
+        "Uniformity": 0.0,
+        "CNR": 97880501.08932462,
+        "SNR": 97880501.08932462
+      },
+      "3": {
+        "n_px": 10000,
+        "bg_mean": 0.0,
+        "bg_std": 0.0,
+        "fuel_mean": 0.9874684095860566,
+        "Uniformity": 0.0,
+        "CNR": 98746840.95860566,
+        "SNR": 98746840.95860566
+      },
+      "4.5": {
+        "n_px": 10000,
+        "bg_mean": 0.0,
+        "bg_std": 0.0,
+        "fuel_mean": 0.984309368191721,
+        "Uniformity": 0.0,
+        "CNR": 98430936.8191721,
+        "SNR": 98430936.8191721
+      },
+      "6": {
+        "n_px": 10000,
+        "bg_mean": 0.0,
+        "bg_std": 0.0,
+        "fuel_mean": 0.9767407407407407,
+        "Uniformity": 0.0,
+        "CNR": 97674074.07407406,
+        "SNR": 97674074.07407406
+      }
+    },
+    "gray_band_definition": "|mask - 0.5| < 0.15（包壳/边缘材料）"
+  },
+  "circularity_caveat": "enhance_by_mask 把灰色带强制映射到 mean=0.45/std=0.07，因此增强后 Uniformity≈0.156、CNR/SNR 的提升是构造结果，不是独立验证；Ring_Index 反而变差（材料边界被锐化）。引用时必须附带此条。",
+  "train_test_gap_note": "R7 已实测投影域 train/test 无差距（best.pt 仅 epoch=4 未收敛）；R2 收敛后需重测。",
+  "artifacts": {
+    "work_dir": "tmp_r8_postprocessing",
+    "per_energy_outputs": {
+      "1.5": "tmp_r8_postprocessing\\1.5\\results\\po_result",
+      "3": "tmp_r8_postprocessing\\3\\results\\po_result",
+      "4.5": "tmp_r8_postprocessing\\4.5\\results\\po_result",
+      "6": "tmp_r8_postprocessing\\6\\results\\po_result"
+    }
+  }
+}

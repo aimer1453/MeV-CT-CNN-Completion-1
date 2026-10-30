@@ -1,0 +1,1347 @@
+{
+  "run_id": "20261030_0055_cnn_bs8_lr1e-4_flaw12_1.5_flaw_step3",
+  "reference_run_id": "20261030_0055_cnn_bs8_lr1e-4_flaw12_1.5",
+  "domain": "image",
+  "task": "缺陷数据（3_3_flaw_1_2，1.5 MeV，单缺陷棒 edge2）域内训练后的评估",
+  "denoise_note": "本文件所有 rmse_valid/psnr/ssim 均为**图像域**，与投影域不可同表",
+  "dense_reference": "360 视角全实测 hamming FBP，与各方法同代码、同 FOV、同裁剪",
+  "per_method": {
+    "dense": {
+      "method_zh": "dense 参考（360 视角全实测）",
+      "n_samples": 45,
+      "domain": "image",
+      "rmse_valid": 0.0,
+      "rmse_full": 0.0,
+      "psnr": NaN,
+      "ssim": 1.0,
+      "data_range": 0.12743473052978516
+    },
+    "cnn_completed": {
+      "method_zh": "CNN 补全（180 实测 + 180 补全）",
+      "n_samples": 45,
+      "domain": "image",
+      "rmse_valid": 0.0013511390602480024,
+      "rmse_full": 0.0011973828054961722,
+      "psnr": 39.49199605423645,
+      "ssim": 0.9260934107254297,
+      "data_range": 0.12743473052978516
+    },
+    "linear_interp": {
+      "method_zh": "线性插值（180 实测 + 180 补全）",
+      "n_samples": 45,
+      "domain": "image",
+      "rmse_valid": 0.0014262832743121272,
+      "rmse_full": 0.0012639757954408131,
+      "psnr": 39.02237290042564,
+      "ssim": 0.9207996265276827,
+      "data_range": 0.12743473052978516
+    },
+    "fbp_sparse": {
+      "method_zh": "FBP 稀疏（180 视角，无补全）",
+      "n_samples": 45,
+      "domain": "image",
+      "rmse_valid": 0.004583737001529997,
+      "rmse_full": 0.0040621191645078955,
+      "psnr": 28.88136227060878,
+      "ssim": 0.5610215193653918,
+      "data_range": 0.12743473052978516
+    },
+    "sart_sparse": {
+      "method_zh": "SART 稀疏（180 视角，无补全）",
+      "n_samples": 45,
+      "domain": "image",
+      "rmse_valid": 0.0038254411270502984,
+      "rmse_full": 0.0033901154690377817,
+      "psnr": 30.45220182816389,
+      "ssim": 0.606346915169011,
+      "data_range": 0.12743473052978516
+    }
+  },
+  "per_method_by_input_phase": {
+    "dense|A": {
+      "n_samples": 22,
+      "rmse_valid": 0.0
+    },
+    "dense|B": {
+      "n_samples": 23,
+      "rmse_valid": 0.0
+    },
+    "cnn_completed|A": {
+      "n_samples": 22,
+      "rmse_valid": 0.0013438445824361749
+    },
+    "cnn_completed|B": {
+      "n_samples": 23,
+      "rmse_valid": 0.0013580797256389535
+    },
+    "linear_interp|A": {
+      "n_samples": 22,
+      "rmse_valid": 0.0014128315048758213
+    },
+    "linear_interp|B": {
+      "n_samples": 23,
+      "rmse_valid": 0.0014390325266058416
+    },
+    "fbp_sparse|A": {
+      "n_samples": 22,
+      "rmse_valid": 0.004583737001529997
+    },
+    "fbp_sparse|B": {
+      "n_samples": 23,
+      "rmse_valid": 0.004583737001529997
+    },
+    "sart_sparse|A": {
+      "n_samples": 22,
+      "rmse_valid": 0.003837008405031573
+    },
+    "sart_sparse|B": {
+      "n_samples": 23,
+      "rmse_valid": 0.003814343950300878
+    }
+  },
+  "projection_domain": {
+    "n_test_views": 45,
+    "rmse_valid_mean": 0.4582440444444444,
+    "rmse_valid_std": 0.07372902499353956,
+    "rmse_valid_min": 0.322096,
+    "rmse_valid_max": 0.610699,
+    "corr_rmse_vs_defect_speed": {
+      "pearson_r": -0.17749965330964515,
+      "t": -1.1827236962183847,
+      "n": 45,
+      "df": 43,
+      "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+    },
+    "corr_rmse_vs_defect_offset": {
+      "pearson_r": 0.37464039687535616,
+      "t": 2.6496552422192976,
+      "n": 45,
+      "df": 43,
+      "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+    },
+    "test_view_source": "train.py 的 test_per_sample.csv（全 32 行 mask 加权）",
+    "domain_mismatch": false,
+    "trained_on": "sparse_targets_flaw12_1.5.csv",
+    "per_view_row16": {
+      "A": {
+        "n_views": 180,
+        "rmse_row16_mean": 0.12711059848924247,
+        "rmse_row16_std": 0.021896462095348266,
+        "corr_rmse_vs_defect_speed": {
+          "pearson_r": -0.14462111677383765,
+          "t": -1.949986356797724,
+          "n": 180,
+          "df": 178,
+          "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+        },
+        "corr_rmse_vs_defect_offset": {
+          "pearson_r": -0.2001297987904545,
+          "t": -2.7251969325785734,
+          "n": 180,
+          "df": 178,
+          "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+        },
+        "mean_abs_err_on_trajectory": 0.12562470534111442,
+        "mean_abs_err_off_trajectory": 0.0711748848224564,
+        "ratio_on_off": 1.765014522390608,
+        "rel_err_on_trajectory": 0.06394828789594453,
+        "rel_err_off_trajectory": 0.07250793404723986,
+        "rel_ratio_on_off": 0.8819488340997469,
+        "definition": "逐预测视角、只取 row16；on-trajectory = 缺陷轨迹列 ±60 px；rel_err = Σ|误差| / Σ|真值|（分区域求和后相除）"
+      },
+      "B": {
+        "n_views": 180,
+        "rmse_row16_mean": 0.12598731446182154,
+        "rmse_row16_std": 0.024911789445270643,
+        "corr_rmse_vs_defect_speed": {
+          "pearson_r": -0.11427204428293955,
+          "t": -1.5346318396807586,
+          "n": 180,
+          "df": 178,
+          "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+        },
+        "corr_rmse_vs_defect_offset": {
+          "pearson_r": -0.19723513559458952,
+          "t": -2.684172232570789,
+          "n": 180,
+          "df": 178,
+          "note": "双侧 t 检验；|t|>2.02 即 p<0.05 (df=43)"
+        },
+        "mean_abs_err_on_trajectory": 0.12342143238158372,
+        "mean_abs_err_off_trajectory": 0.07060033358028076,
+        "ratio_on_off": 1.7481706689280618,
+        "rel_err_on_trajectory": 0.06298651317254009,
+        "rel_err_off_trajectory": 0.07206972640236077,
+        "rel_ratio_on_off": 0.873966314522832,
+        "definition": "逐预测视角、只取 row16；on-trajectory = 缺陷轨迹列 ±60 px；rel_err = Σ|误差| / Σ|真值|（分区域求和后相除）"
+      }
+    }
+  },
+  "projection_matched_filter": {
+    "by_offset": {
+      "offset_0deg": {
+        "mean_dlog": -0.06646206399427457,
+        "std": 0.0648249071711155,
+        "sem": 0.003416572596161792,
+        "t_stat": -19.452847004901532,
+        "n_angles": 360,
+        "note": "dlog = 轨迹带内均值 − 带外均值（单角），再对 360 角取平均"
+      },
+      "offset_90deg": {
+        "mean_dlog": 0.0026339019597981083,
+        "std": 0.075398229508281,
+        "sem": 0.003973835613171422,
+        "t_stat": 0.6628110008043475,
+        "n_angles": 360,
+        "note": "dlog = 轨迹带内均值 − 带外均值（单角），再对 360 角取平均"
+      },
+      "offset_180deg": {
+        "mean_dlog": 0.0012286302605829494,
+        "std": 0.06892812833155203,
+        "sem": 0.003632831339668102,
+        "t_stat": 0.3382018447063931,
+        "n_angles": 360,
+        "note": "dlog = 轨迹带内均值 − 带外均值（单角），再对 360 角取平均"
+      },
+      "offset_270deg": {
+        "mean_dlog": 0.0028354725841687437,
+        "std": 0.0755475937733534,
+        "sem": 0.003981707801149187,
+        "t_stat": 0.7121247278241711,
+        "n_angles": 360,
+        "note": "dlog = 轨迹带内均值 − 带外均值（单角），再对 360 角取平均"
+      }
+    },
+    "d4_contrast": {
+      "offset0_minus_pseudo_baseline": -0.06869473226245783,
+      "sem": 0.004081115653297516,
+      "t_stat": -16.832341471860254,
+      "pseudo_baseline": 0.002232668268183267,
+      "pseudo_baseline_spread": 0.0016068423235857943,
+      "note": "物模 4 重旋转对称 ⇒ 90/180/270 三条伪轨迹的基线应一致（实测极差<0.001）；offset0 相对该基线的偏离即缺陷信号，已消去两次仿真之间的全局乘性差"
+    },
+    "arc_profile": [
+      {
+        "abs_dev_deg": 0.0,
+        "mean_dlog": 0.03267880984387645,
+        "n_angles": 9
+      },
+      {
+        "abs_dev_deg": 5.0,
+        "mean_dlog": 0.01916830072166825,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 10.0,
+        "mean_dlog": -0.03950857089692448,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 15.0,
+        "mean_dlog": -0.06049539197161121,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 20.0,
+        "mean_dlog": -0.11237300468287222,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 25.0,
+        "mean_dlog": -0.11766760937080663,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 30.0,
+        "mean_dlog": -0.1263240649209532,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 35.0,
+        "mean_dlog": -0.11005329387419131,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 40.0,
+        "mean_dlog": -0.09391434230141943,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 45.0,
+        "mean_dlog": -0.07896455620495847,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 50.0,
+        "mean_dlog": -0.07285336726342309,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 55.0,
+        "mean_dlog": -0.06427878727151892,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 60.0,
+        "mean_dlog": -0.06407195665842816,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 65.0,
+        "mean_dlog": -0.10521452920508172,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 70.0,
+        "mean_dlog": -0.061022114836815314,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 75.0,
+        "mean_dlog": -0.021395312359096287,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 80.0,
+        "mean_dlog": -0.0021553225286588366,
+        "n_angles": 10
+      },
+      {
+        "abs_dev_deg": 85.0,
+        "mean_dlog": -0.030702501688575367,
+        "n_angles": 10
+      }
+    ],
+    "peak_angle_deg": 262.0,
+    "band_halfwidth_px": 60.0,
+    "definition": "ΔL(θ) = mean_{|col−traj(θ)|≤60}(flaw−uniform) − mean_{其余列}(flaw−uniform)，两侧同 fill"
+  },
+  "defect_geometry": {
+    "defect_rod": "edge2",
+    "rod_radius_px": 260.0,
+    "rod_az_img_deg": 180.0,
+    "traj": {
+      "amp": 257.83130256643574,
+      "offset": 596.6083333333337,
+      "phase_deg": 179.69145808255658
+    },
+    "traj_source": "runs\\_flaw12_cavity_localization.json#1.5",
+    "az_mapping_note": "模块级 AZ_DEFECT_IMG = phase−90 只在角棒 phase≈225° 时碰巧成立（角棒 224.7°→134.7° 对；边棒 180.2°→90.2° 错 90°）。本批次 ROI 由 --defect-rod 查 rod_centers() 定位（图像域最暗棒锚定），D4 轨迹由 --traj-json 的投影域拟合给出，两者互不依赖。"
+  },
+  "uniform_reference": {
+    "run_id": "20261024_0400_cnn_bs8_lr1e-4",
+    "paths": {
+      "dense": "runs\\20261024_0400_cnn_bs8_lr1e-4_cnn_recon\\recon\\dense_1.5_fbp_hamming.npy",
+      "cnn_completed": "runs\\20261024_0400_cnn_bs8_lr1e-4_cnn_recon\\recon\\cnn_1.5_A.npy",
+      "linear_interp": "runs\\20261024_0400_cnn_bs8_lr1e-4_linear_interp_image\\recon\\linear_1.5_A.npy",
+      "fbp_sparse": "runs\\20261024_0400_cnn_bs8_lr1e-4_fbp_sparse\\recon\\fbp_1.5_A.npy",
+      "sart_sparse": "runs\\20261024_0400_cnn_bs8_lr1e-4_sart_sparse\\recon\\sart_1.5_A.npy"
+    },
+    "fill_mismatch_note": "均匀侧 zero_log_fill=5.50、缺陷侧 5.10（各自 config 的裁决值）。该差异只影响零计数像素、且在重建后表现为全局常数项，在 CNR 的'缺陷 ROI − 背景环'差分里抵消；故不重算均匀侧重建。"
+  },
+  "defect_cnr": {
+    "dense": {
+      "status": "ok",
+      "in_image": {
+        "mu_bubble": 0.000969452376011759,
+        "mu_reference": 0.006192535627633333,
+        "contrast": 0.005223083251621574,
+        "noise_sd": 0.010155598632991314,
+        "cnr": 0.5143057972627975,
+        "bubble_radius_px": 5.5,
+        "bubble_radius_cm": 0.055,
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "noise_reference_rods": [
+          "edge0",
+          "edge1",
+          "edge3"
+        ],
+        "definition": "μ_bubble = 缺陷棒中心 r≤15 px 圆盘均值；μ_ref = 同棒 32–62 px 环均值；σ = 与缺陷棒同半径族（r≈260.0 px）的 3 根正常棒同尺寸中心圆盘 std 的中位数；bubble_radius 由径向半高位置确定"
+      },
+      "vs_noflaw": {
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "defect_rod_note": "ROI 由 --defect-rod=edge2 查 rod_centers() 定位（r=260.0 px, az_img=180.0°）；投影域轨迹来自 runs\\_flaw12_cavity_localization.json#1.5。旧实现以 phase−90 反推图像方位，该式仅在角棒 phase≈225° 时碰巧成立，已弃用；差 90° 的整数倍在投影域不可分辨，「哪一根棒」以图像域最暗棒锚定为准",
+        "bg_mean": 2.310192030563485e-06,
+        "bg_std": 0.005632754880934954,
+        "defect_peak": -0.004207557067275047,
+        "defect_delta_vs_bg": -0.004209867259305611,
+        "cnr": -0.7473904596052359,
+        "defect_rank_among_9": 2,
+        "control_abs_mean": 0.0014586005054297857,
+        "control_abs_max": 0.005243193823844194,
+        "contrast_ratio": 2.884653509725245,
+        "per_rod": [
+          {
+            "rod": "center",
+            "is_defect_rod": false,
+            "rod_r_px": 0.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.005243193823844194,
+            "v": 0.005243193823844194,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": 0.005240883631813631,
+            "cnr": 0.9304299126440457
+          },
+          {
+            "rod": "edge0",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010864159557968378,
+            "v": -0.0010864159557968378,
+            "dy": 0,
+            "dx": -16,
+            "delta_vs_bg": -0.0010887261478274013,
+            "cnr": -0.1932848438891573
+          },
+          {
+            "rod": "edge1",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 90.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.00106174242682755,
+            "v": -0.00106174242682755,
+            "dy": 16,
+            "dx": 0,
+            "delta_vs_bg": -0.0010640526188581134,
+            "cnr": -0.1889044777111793
+          },
+          {
+            "rod": "edge2",
+            "is_defect_rod": true,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 180.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.004207557067275047,
+            "v": -0.004207557067275047,
+            "dy": -4,
+            "dx": 0,
+            "delta_vs_bg": -0.004209867259305611,
+            "cnr": -0.7473904596052359
+          },
+          {
+            "rod": "edge3",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 270.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010758608113974333,
+            "v": -0.0010758608113974333,
+            "dy": -16,
+            "dx": 0,
+            "delta_vs_bg": -0.0010781710034279968,
+            "cnr": -0.19141095719915943
+          },
+          {
+            "rod": "corner0",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 45.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0008102613501250744,
+            "v": 0.0008102613501250744,
+            "dy": 32,
+            "dx": -24,
+            "delta_vs_bg": 0.0008079511580945109,
+            "cnr": 0.14343801127032232
+          },
+          {
+            "rod": "corner1",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 135.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.000778053654357791,
+            "v": 0.000778053654357791,
+            "dy": 24,
+            "dx": 32,
+            "delta_vs_bg": 0.0007757434623272275,
+            "cnr": 0.1377200816873582
+          },
+          {
+            "rod": "corner2",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 225.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0007818475132808089,
+            "v": 0.0007818475132808089,
+            "dy": 20,
+            "dx": 48,
+            "delta_vs_bg": 0.0007795373212502454,
+            "cnr": 0.13839361692956428
+          },
+          {
+            "rod": "corner3",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 315.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0008314285078085959,
+            "v": 0.0008314285078085959,
+            "dy": -24,
+            "dx": -12,
+            "delta_vs_bg": 0.0008291183157780324,
+            "cnr": 0.1471958807553172
+          }
+        ]
+      },
+      "rod_centres": [
+        {
+          "rod": "center",
+          "mu_centre": -0.0006369482725858688,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge0",
+          "mu_centre": 0.0075975824147462845,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge1",
+          "mu_centre": 0.0077295382507145405,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge2",
+          "mu_centre": 0.000969452376011759,
+          "is_defect_rod": true
+        },
+        {
+          "rod": "edge3",
+          "mu_centre": 0.007726667914539576,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner0",
+          "mu_centre": 0.006713390816003084,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner1",
+          "mu_centre": 0.006660091690719128,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner2",
+          "mu_centre": 0.006636135280132294,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner3",
+          "mu_centre": 0.006719494238495827,
+          "is_defect_rod": false
+        }
+      ]
+    },
+    "cnn_completed": {
+      "status": "ok",
+      "in_image": {
+        "mu_bubble": 0.0013028596395152703,
+        "mu_reference": 0.006142403734957397,
+        "contrast": 0.004839544095442127,
+        "noise_sd": 0.009888678739496051,
+        "cnr": 0.4894024998620555,
+        "bubble_radius_px": 4.5,
+        "bubble_radius_cm": 0.045,
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "noise_reference_rods": [
+          "edge0",
+          "edge1",
+          "edge3"
+        ],
+        "definition": "μ_bubble = 缺陷棒中心 r≤15 px 圆盘均值；μ_ref = 同棒 32–62 px 环均值；σ = 与缺陷棒同半径族（r≈260.0 px）的 3 根正常棒同尺寸中心圆盘 std 的中位数；bubble_radius 由径向半高位置确定"
+      },
+      "vs_noflaw": {
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "defect_rod_note": "ROI 由 --defect-rod=edge2 查 rod_centers() 定位（r=260.0 px, az_img=180.0°）；投影域轨迹来自 runs\\_flaw12_cavity_localization.json#1.5。旧实现以 phase−90 反推图像方位，该式仅在角棒 phase≈225° 时碰巧成立，已弃用；差 90° 的整数倍在投影域不可分辨，「哪一根棒」以图像域最暗棒锚定为准",
+        "bg_mean": -9.18995316948129e-06,
+        "bg_std": 0.005248752692207204,
+        "defect_peak": -0.003952910331289523,
+        "defect_delta_vs_bg": -0.003943720378120042,
+        "cnr": -0.7513633446619162,
+        "defect_rank_among_9": 2,
+        "control_abs_mean": 0.0015791791733081827,
+        "control_abs_max": 0.005807397028388233,
+        "contrast_ratio": 2.503142390745105,
+        "per_rod": [
+          {
+            "rod": "center",
+            "is_defect_rod": false,
+            "rod_r_px": 0.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.005807397028388233,
+            "v": 0.005807397028388233,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": 0.005816586981557715,
+            "cnr": 1.108184615021693
+          },
+          {
+            "rod": "edge0",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009684347880712601,
+            "v": 0.0009684347880712601,
+            "dy": 36,
+            "dx": -8,
+            "delta_vs_bg": 0.0009776247412407414,
+            "cnr": 0.1862584881722882
+          },
+          {
+            "rod": "edge1",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 90.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009410217333490456,
+            "v": 0.0009410217333490456,
+            "dy": 8,
+            "dx": 36,
+            "delta_vs_bg": 0.0009502116865185269,
+            "cnr": 0.1810357130998573
+          },
+          {
+            "rod": "edge2",
+            "is_defect_rod": true,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 180.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.003952910331289523,
+            "v": -0.003952910331289523,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": -0.003943720378120042,
+            "cnr": -0.7513633446619162
+          },
+          {
+            "rod": "edge3",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 270.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009725129687581596,
+            "v": 0.0009725129687581596,
+            "dy": -8,
+            "dx": -36,
+            "delta_vs_bg": 0.0009817029219276409,
+            "cnr": 0.18703546909062227
+          },
+          {
+            "rod": "corner0",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 45.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010146767032493296,
+            "v": 0.0010146767032493296,
+            "dy": 24,
+            "dx": -12,
+            "delta_vs_bg": 0.0010238666564188108,
+            "cnr": 0.1950685651352826
+          },
+          {
+            "rod": "corner1",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 135.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009705620592225879,
+            "v": 0.0009705620592225879,
+            "dy": 12,
+            "dx": 24,
+            "delta_vs_bg": 0.000979752012392069,
+            "cnr": 0.18666377896727768
+          },
+          {
+            "rod": "corner2",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 225.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009471754931101546,
+            "v": 0.0009471754931101546,
+            "dy": -24,
+            "dx": 12,
+            "delta_vs_bg": 0.0009563654462796359,
+            "cnr": 0.18220813636343483
+          },
+          {
+            "rod": "corner3",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 315.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010116526123166913,
+            "v": 0.0010116526123166913,
+            "dy": -24,
+            "dx": -12,
+            "delta_vs_bg": 0.0010208425654861725,
+            "cnr": 0.19449241093066022
+          }
+        ]
+      },
+      "rod_centres": [
+        {
+          "rod": "center",
+          "mu_centre": 2.3142081720852006e-05,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge0",
+          "mu_centre": 0.007528971409511232,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge1",
+          "mu_centre": 0.007609157903682003,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge2",
+          "mu_centre": 0.0013028596395152703,
+          "is_defect_rod": true
+        },
+        {
+          "rod": "edge3",
+          "mu_centre": 0.0075667187156127965,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner0",
+          "mu_centre": 0.006587263445376799,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner1",
+          "mu_centre": 0.0065846490986189825,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner2",
+          "mu_centre": 0.006541486079251881,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner3",
+          "mu_centre": 0.006562043508895704,
+          "is_defect_rod": false
+        }
+      ]
+    },
+    "linear_interp": {
+      "status": "ok",
+      "in_image": {
+        "mu_bubble": 0.00109119713306427,
+        "mu_reference": 0.006158383097499609,
+        "contrast": 0.005067185964435339,
+        "noise_sd": 0.00870110746473074,
+        "cnr": 0.5823610367961529,
+        "bubble_radius_px": 5.5,
+        "bubble_radius_cm": 0.055,
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "noise_reference_rods": [
+          "edge0",
+          "edge1",
+          "edge3"
+        ],
+        "definition": "μ_bubble = 缺陷棒中心 r≤15 px 圆盘均值；μ_ref = 同棒 32–62 px 环均值；σ = 与缺陷棒同半径族（r≈260.0 px）的 3 根正常棒同尺寸中心圆盘 std 的中位数；bubble_radius 由径向半高位置确定"
+      },
+      "vs_noflaw": {
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "defect_rod_note": "ROI 由 --defect-rod=edge2 查 rod_centers() 定位（r=260.0 px, az_img=180.0°）；投影域轨迹来自 runs\\_flaw12_cavity_localization.json#1.5。旧实现以 phase−90 反推图像方位，该式仅在角棒 phase≈225° 时碰巧成立，已弃用；差 90° 的整数倍在投影域不可分辨，「哪一根棒」以图像域最暗棒锚定为准",
+        "bg_mean": 3.993903192167636e-06,
+        "bg_std": 0.0054031433537602425,
+        "defect_peak": -0.004237398039549589,
+        "defect_delta_vs_bg": -0.004241391942741757,
+        "cnr": -0.784986010002866,
+        "defect_rank_among_9": 2,
+        "control_abs_mean": 0.0014430782539420761,
+        "control_abs_max": 0.00553904939442873,
+        "contrast_ratio": 2.936360538989644,
+        "per_rod": [
+          {
+            "rod": "center",
+            "is_defect_rod": false,
+            "rod_r_px": 0.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.00553904939442873,
+            "v": 0.00553904939442873,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": 0.005535055491236562,
+            "cnr": 1.024413962177131
+          },
+          {
+            "rod": "edge0",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009746437426656485,
+            "v": -0.0009746437426656485,
+            "dy": -24,
+            "dx": 40,
+            "delta_vs_bg": -0.000978637645857816,
+            "cnr": -0.18112376107451356
+          },
+          {
+            "rod": "edge1",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 90.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009161480120383203,
+            "v": 0.0009161480120383203,
+            "dy": 8,
+            "dx": 40,
+            "delta_vs_bg": 0.0009121541088461527,
+            "cnr": 0.16881915750233642
+          },
+          {
+            "rod": "edge2",
+            "is_defect_rod": true,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 180.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.004237398039549589,
+            "v": -0.004237398039549589,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": -0.004241391942741757,
+            "cnr": -0.784986010002866
+          },
+          {
+            "rod": "edge3",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 270.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0009389785118401051,
+            "v": 0.0009389785118401051,
+            "dy": -8,
+            "dx": -40,
+            "delta_vs_bg": 0.0009349846086479374,
+            "cnr": 0.17304456821365805
+          },
+          {
+            "rod": "corner0",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 45.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0008093946380540729,
+            "v": 0.0008093946380540729,
+            "dy": 28,
+            "dx": 28,
+            "delta_vs_bg": 0.0008054007348619052,
+            "cnr": 0.14906151514588223
+          },
+          {
+            "rod": "corner1",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 135.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0007613486959598958,
+            "v": 0.0007613486959598958,
+            "dy": -28,
+            "dx": 28,
+            "delta_vs_bg": 0.0007573547927677282,
+            "cnr": 0.14016929464598746
+          },
+          {
+            "rod": "corner2",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 225.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0007818749872967601,
+            "v": 0.0007818749872967601,
+            "dy": 28,
+            "dx": 28,
+            "delta_vs_bg": 0.0007778810841045924,
+            "cnr": 0.1439682483277511
+          },
+          {
+            "rod": "corner3",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 315.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0008231880492530763,
+            "v": 0.0008231880492530763,
+            "dy": -28,
+            "dx": 28,
+            "delta_vs_bg": 0.0008191941460609087,
+            "cnr": 0.1516143645329717
+          }
+        ]
+      },
+      "rod_centres": [
+        {
+          "rod": "center",
+          "mu_centre": 0.0002491667401045561,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge0",
+          "mu_centre": 0.00733841210603714,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge1",
+          "mu_centre": 0.0074096620082855225,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge2",
+          "mu_centre": 0.00109119713306427,
+          "is_defect_rod": true
+        },
+        {
+          "rod": "edge3",
+          "mu_centre": 0.0074060168117284775,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner0",
+          "mu_centre": 0.006446863524615765,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner1",
+          "mu_centre": 0.006456668023020029,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner2",
+          "mu_centre": 0.00644444115459919,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner3",
+          "mu_centre": 0.006455984432250261,
+          "is_defect_rod": false
+        }
+      ]
+    },
+    "fbp_sparse": {
+      "status": "ok",
+      "in_image": {
+        "mu_bubble": 0.0010569709120318294,
+        "mu_reference": 0.006144675891846418,
+        "contrast": 0.005087704979814589,
+        "noise_sd": 0.010209626518189907,
+        "cnr": 0.49832429920429666,
+        "bubble_radius_px": 5.5,
+        "bubble_radius_cm": 0.055,
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "noise_reference_rods": [
+          "edge0",
+          "edge1",
+          "edge3"
+        ],
+        "definition": "μ_bubble = 缺陷棒中心 r≤15 px 圆盘均值；μ_ref = 同棒 32–62 px 环均值；σ = 与缺陷棒同半径族（r≈260.0 px）的 3 根正常棒同尺寸中心圆盘 std 的中位数；bubble_radius 由径向半高位置确定"
+      },
+      "vs_noflaw": {
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "defect_rod_note": "ROI 由 --defect-rod=edge2 查 rod_centers() 定位（r=260.0 px, az_img=180.0°）；投影域轨迹来自 runs\\_flaw12_cavity_localization.json#1.5。旧实现以 phase−90 反推图像方位，该式仅在角棒 phase≈225° 时碰巧成立，已弃用；差 90° 的整数倍在投影域不可分辨，「哪一根棒」以图像域最暗棒锚定为准",
+        "bg_mean": 1.9104145394521765e-06,
+        "bg_std": 0.007899906486272812,
+        "defect_peak": -0.0044505055993795395,
+        "defect_delta_vs_bg": -0.004452416013918992,
+        "cnr": -0.5636036352652636,
+        "defect_rank_among_9": 2,
+        "control_abs_mean": 0.0016875613800948486,
+        "control_abs_max": 0.00555565906688571,
+        "contrast_ratio": 2.6372407260999307,
+        "per_rod": [
+          {
+            "rod": "center",
+            "is_defect_rod": false,
+            "rod_r_px": 0.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.00555565906688571,
+            "v": 0.00555565906688571,
+            "dy": 0,
+            "dx": 0,
+            "delta_vs_bg": 0.005553748652346258,
+            "cnr": 0.7030144802342495
+          },
+          {
+            "rod": "edge0",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010825528297573328,
+            "v": -0.0010825528297573328,
+            "dy": -24,
+            "dx": 40,
+            "delta_vs_bg": -0.001084463244296785,
+            "cnr": -0.1372754533463391
+          },
+          {
+            "rod": "edge1",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 90.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010330143850296736,
+            "v": 0.0010330143850296736,
+            "dy": 8,
+            "dx": 40,
+            "delta_vs_bg": 0.0010311039704902214,
+            "cnr": 0.1305210349365411
+          },
+          {
+            "rod": "edge2",
+            "is_defect_rod": true,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 180.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0044505055993795395,
+            "v": -0.0044505055993795395,
+            "dy": -4,
+            "dx": 0,
+            "delta_vs_bg": -0.004452416013918992,
+            "cnr": -0.5636036352652636
+          },
+          {
+            "rod": "edge3",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 270.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.001050082384608686,
+            "v": 0.001050082384608686,
+            "dy": -8,
+            "dx": -40,
+            "delta_vs_bg": 0.0010481719700692338,
+            "cnr": 0.1326815667869713
+          },
+          {
+            "rod": "corner0",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 45.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0012353846104815602,
+            "v": 0.0012353846104815602,
+            "dy": 28,
+            "dx": 28,
+            "delta_vs_bg": 0.001233474195942108,
+            "cnr": 0.1561378224014982
+          },
+          {
+            "rod": "corner1",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 135.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0011616384144872427,
+            "v": 0.0011616384144872427,
+            "dy": -28,
+            "dx": 28,
+            "delta_vs_bg": 0.0011597279999477905,
+            "cnr": 0.14680275038229623
+          },
+          {
+            "rod": "corner2",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 225.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0011597902048379183,
+            "v": 0.0011597902048379183,
+            "dy": 28,
+            "dx": 28,
+            "delta_vs_bg": 0.001157879790298466,
+            "cnr": 0.146568797024426
+          },
+          {
+            "rod": "corner3",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 315.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0012223691446706653,
+            "v": 0.0012223691446706653,
+            "dy": -28,
+            "dx": 28,
+            "delta_vs_bg": 0.001220458730131213,
+            "cnr": 0.15449027558135406
+          }
+        ]
+      },
+      "rod_centres": [
+        {
+          "rod": "center",
+          "mu_centre": 0.00023779830371495336,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge0",
+          "mu_centre": 0.007172549609094858,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge1",
+          "mu_centre": 0.007256829179823399,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge2",
+          "mu_centre": 0.0010569709120318294,
+          "is_defect_rod": true
+        },
+        {
+          "rod": "edge3",
+          "mu_centre": 0.007251374889165163,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner0",
+          "mu_centre": 0.006955908611416817,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner1",
+          "mu_centre": 0.00693221390247345,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner2",
+          "mu_centre": 0.0069102025590837,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner3",
+          "mu_centre": 0.006967923603951931,
+          "is_defect_rod": false
+        }
+      ]
+    },
+    "sart_sparse": {
+      "status": "ok",
+      "in_image": {
+        "mu_bubble": 0.0007438750471919775,
+        "mu_reference": 0.006117595359683037,
+        "contrast": 0.005373720312491059,
+        "noise_sd": 0.006185534875839949,
+        "cnr": 0.8687559637696407,
+        "bubble_radius_px": 20.5,
+        "bubble_radius_cm": 0.205,
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "noise_reference_rods": [
+          "edge0",
+          "edge1",
+          "edge3"
+        ],
+        "definition": "μ_bubble = 缺陷棒中心 r≤15 px 圆盘均值；μ_ref = 同棒 32–62 px 环均值；σ = 与缺陷棒同半径族（r≈260.0 px）的 3 根正常棒同尺寸中心圆盘 std 的中位数；bubble_radius 由径向半高位置确定"
+      },
+      "vs_noflaw": {
+        "defect_rod_az_img_deg": 180.0,
+        "defect_rod_r_px": 260.0,
+        "defect_rod_note": "ROI 由 --defect-rod=edge2 查 rod_centers() 定位（r=260.0 px, az_img=180.0°）；投影域轨迹来自 runs\\_flaw12_cavity_localization.json#1.5。旧实现以 phase−90 反推图像方位，该式仅在角棒 phase≈225° 时碰巧成立，已弃用；差 90° 的整数倍在投影域不可分辨，「哪一根棒」以图像域最暗棒锚定为准",
+        "bg_mean": 5.58732972422149e-06,
+        "bg_std": 0.002206452190876007,
+        "defect_peak": -0.004314847756177187,
+        "defect_delta_vs_bg": -0.0043204350859014085,
+        "cnr": -1.958091411981198,
+        "defect_rank_among_9": 2,
+        "control_abs_mean": 0.0018047315170406364,
+        "control_abs_max": 0.005802583415061235,
+        "contrast_ratio": 2.3908529969336327,
+        "per_rod": [
+          {
+            "rod": "center",
+            "is_defect_rod": false,
+            "rod_r_px": 0.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.005802583415061235,
+            "v": 0.005802583415061235,
+            "dy": 4,
+            "dx": 0,
+            "delta_vs_bg": 0.005796996085337014,
+            "cnr": 2.627292859237293
+          },
+          {
+            "rod": "edge0",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 0.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0012457130942493677,
+            "v": 0.0012457130942493677,
+            "dy": -40,
+            "dx": -8,
+            "delta_vs_bg": 0.0012401257645251462,
+            "cnr": 0.5620451554097761
+          },
+          {
+            "rod": "edge1",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 90.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0016686210874468088,
+            "v": -0.0016686210874468088,
+            "dy": 16,
+            "dx": 4,
+            "delta_vs_bg": -0.0016742084171710303,
+            "cnr": -0.7587784698413679
+          },
+          {
+            "rod": "edge2",
+            "is_defect_rod": true,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 180.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.004314847756177187,
+            "v": -0.004314847756177187,
+            "dy": 4,
+            "dx": 0,
+            "delta_vs_bg": -0.0043204350859014085,
+            "cnr": -1.958091411981198
+          },
+          {
+            "rod": "edge3",
+            "is_defect_rod": false,
+            "rod_r_px": 260.0,
+            "rod_az_img_deg": 270.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0014037800719961524,
+            "v": 0.0014037800719961524,
+            "dy": -60,
+            "dx": 0,
+            "delta_vs_bg": 0.001398192742271931,
+            "cnr": 0.6336836791903565
+          },
+          {
+            "rod": "corner0",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 45.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0011518143583089113,
+            "v": 0.0011518143583089113,
+            "dy": 44,
+            "dx": -40,
+            "delta_vs_bg": 0.0011462270285846898,
+            "cnr": 0.5194887219059181
+          },
+          {
+            "rod": "corner1",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 135.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0008793945307843387,
+            "v": 0.0008793945307843387,
+            "dy": 44,
+            "dx": 36,
+            "delta_vs_bg": 0.0008738072010601172,
+            "cnr": 0.39602362773752087
+          },
+          {
+            "rod": "corner2",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 225.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0010136935161426663,
+            "v": 0.0010136935161426663,
+            "dy": -28,
+            "dx": -28,
+            "delta_vs_bg": 0.0010081061864184448,
+            "cnr": 0.4568901110058523
+          },
+          {
+            "rod": "corner3",
+            "is_defect_rod": false,
+            "rod_r_px": 367.7,
+            "rod_az_img_deg": 315.0,
+            "roi_radius_px": 25.0,
+            "abs": 0.0012722520623356104,
+            "v": 0.0012722520623356104,
+            "dy": -24,
+            "dx": -12,
+            "delta_vs_bg": 0.001266664732611389,
+            "cnr": 0.5740730471519969
+          }
+        ]
+      },
+      "rod_centres": [
+        {
+          "rod": "center",
+          "mu_centre": 0.00016225449508056045,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge0",
+          "mu_centre": 0.007441042456775904,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge1",
+          "mu_centre": 0.007466801907867193,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "edge2",
+          "mu_centre": 0.0007438750471919775,
+          "is_defect_rod": true
+        },
+        {
+          "rod": "edge3",
+          "mu_centre": 0.007360290270298719,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner0",
+          "mu_centre": 0.006282325368374586,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner1",
+          "mu_centre": 0.006234552711248398,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner2",
+          "mu_centre": 0.006459007039666176,
+          "is_defect_rod": false
+        },
+        {
+          "rod": "corner3",
+          "mu_centre": 0.0065310331992805,
+          "is_defect_rod": false
+        }
+      ]
+    }
+  },
+  "table_note_en": "Image-domain metrics from 180 measured plus 180 completed views; the completed set is not restricted to the held-out split.",
+  "git_commit": "e281a786d52a2b9482288cba4852123da50d5e61",
+  "git_dirty": true
+}

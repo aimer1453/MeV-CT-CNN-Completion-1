@@ -1,0 +1,20 @@
+{
+  "run_id": "20261029_0259_cnn1d_bs8_lr1e-4_row16_3mev_s20261024",
+  "arch": "UNet1D",
+  "row": 16,
+  "ablation_group": "C_row1d_true_single_row",
+  "git_commit": "0e9b19aeb5a0115791245f52d5b4e737ff82ff26",
+  "git_dirty": true,
+  "best_epoch": 98,
+  "best_val_rmse_valid_phys": 0.09002711981064217,
+  "n_parameters": 681345,
+  "overall": {
+    "n_samples": 45,
+    "coverage": 0.9608020833333334,
+    "valid_coverage": 0.9573645833333333,
+    "rmse_valid": 0.08975508329465866,
+    "rmse_full": 0.08975508329465866
+  },
+  "row16_note": "rmse_valid / rmse_full 均为 Row 16 单行（1200 像素）口径；coverage / valid_coverage 为 32x1200 数据级口径，便于与 A/B 组横比",
+  "psnr_ssim_note": "本消融不涉及图像域指标，psnr/ssim 记 NaN"
+}

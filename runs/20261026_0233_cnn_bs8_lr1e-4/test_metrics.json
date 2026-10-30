@@ -1,0 +1,35 @@
+{
+  "run_id": "20261026_0233_cnn_bs8_lr1e-4",
+  "git_commit": "ca18502d20a92356587edf36a3c763da9f0e3986",
+  "git_dirty": true,
+  "best_epoch": 93,
+  "best_val_rmse_valid_phys": 0.4270251459735998,
+  "best_note": "test 阶段加载 best.pt，该权重对应 epoch=93，val_rmse_valid_phys=0.427025",
+  "invariant_warn": {
+    "n_warn": 0,
+    "n_samples": 45,
+    "ratio": 0.0,
+    "note": "逐样本 rmse_full < rmse_valid 的告警数（不中断）；池化行仍硬断言"
+  },
+  "overall": {
+    "n_samples": 45,
+    "coverage": 0.8253663194444448,
+    "valid_coverage": 0.811761574074074,
+    "rmse_valid": 0.4300190397400788,
+    "rmse_full": 2.2289315996752355,
+    "psnr": NaN,
+    "ssim": NaN
+  },
+  "per_energy": {
+    "1.5": {
+      "n_samples": 45,
+      "coverage": 0.8253663194444448,
+      "valid_coverage": 0.811761574074074,
+      "rmse_valid": 0.4300190397400788,
+      "rmse_full": 2.2289315996752355,
+      "psnr": NaN,
+      "ssim": NaN
+    }
+  },
+  "psnr_ssim_note": "PSNR/SSIM 口径待定，当前不作主指标；test_per_sample.csv 中同样为 NaN"
+}

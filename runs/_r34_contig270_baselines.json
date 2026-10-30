@@ -1,0 +1,131 @@
+{
+  "csv": "csv_data/sparse_targets_3MeV_contig270.csv",
+  "n_test_views": 45,
+  "energy_MeV": 3.0,
+  "step_deg": 2,
+  "cnn_run_id": null,
+  "filter": "hamming",
+  "data_range_common": 0.05133787179665902,
+  "image": {
+    "fbp_sparse": {
+      "per_energy": {
+        "3": {
+          "n_directions": 2,
+          "n_views_completed": 180,
+          "rmse_valid": 0.0025894165515018834,
+          "rmse_full": 0.002294747407025925,
+          "psnr": 25.944718828459543,
+          "psnr_common": 25.944718828459543,
+          "ssim": 0.521672622233476
+        }
+      },
+      "overall": {
+        "n_samples": 2,
+        "n_views_completed": 180,
+        "rmse_valid": 0.0025894165515018834,
+        "rmse_full": 0.002294747407025925,
+        "psnr": 25.944718828459543,
+        "psnr_common": 25.944718828459543,
+        "ssim": 0.521672622233476
+      }
+    },
+    "linear": {
+      "per_energy": {
+        "3": {
+          "n_directions": 2,
+          "n_views_completed": 360,
+          "rmse_valid": 0.0009428291922971096,
+          "rmse_full": 0.0008355082604067771,
+          "psnr": 34.72070646633828,
+          "psnr_common": 34.72070646633828,
+          "ssim": 0.8609250908107866
+        }
+      },
+      "overall": {
+        "n_samples": 2,
+        "n_views_completed": 360,
+        "rmse_valid": 0.0009428291922971096,
+        "rmse_full": 0.0008355082604067771,
+        "psnr": 34.72070646633828,
+        "psnr_common": 34.72070646633828,
+        "ssim": 0.8609250908107866
+      }
+    },
+    "cubic": {
+      "per_energy": {
+        "3": {
+          "n_directions": 2,
+          "n_views_completed": 360,
+          "rmse_valid": 0.0009805802714663123,
+          "rmse_full": 0.0008689768386943579,
+          "psnr": 34.37941093411722,
+          "psnr_common": 34.37941093411722,
+          "ssim": 0.8524307608578725
+        }
+      },
+      "overall": {
+        "n_samples": 2,
+        "n_views_completed": 360,
+        "rmse_valid": 0.0009805802714663123,
+        "rmse_full": 0.0008689768386943579,
+        "psnr": 34.37941093411722,
+        "psnr_common": 34.37941093411722,
+        "ssim": 0.8524307608578725
+      }
+    }
+  },
+  "projection": {
+    "linear": {
+      "row16": {
+        "per_energy": {
+          "3": {
+            "rmse_valid": 0.08902048770486846,
+            "n_valid_pixels": 54000
+          }
+        },
+        "overall": {
+          "rmse_valid": 0.08902048770486846,
+          "n_valid_pixels": 54000
+        }
+      },
+      "all32": {
+        "per_energy": {
+          "3": {
+            "rmse_valid": 0.79116965832967,
+            "n_valid_pixels": 1654326
+          }
+        },
+        "overall": {
+          "rmse_valid": 0.79116965832967,
+          "n_valid_pixels": 1654326
+        }
+      }
+    },
+    "cubic": {
+      "row16": {
+        "per_energy": {
+          "3": {
+            "rmse_valid": 0.09224626921361587,
+            "n_valid_pixels": 54000
+          }
+        },
+        "overall": {
+          "rmse_valid": 0.09224626921361587,
+          "n_valid_pixels": 54000
+        }
+      },
+      "all32": {
+        "per_energy": {
+          "3": {
+            "rmse_valid": 0.8342359679532758,
+            "n_valid_pixels": 1654326
+          }
+        },
+        "overall": {
+          "rmse_valid": 0.8342359679532758,
+          "n_valid_pixels": 1654326
+        }
+      }
+    }
+  }
+}

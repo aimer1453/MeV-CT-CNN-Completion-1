@@ -1,0 +1,136 @@
+{
+  "run_id": "PENDING: train.py 启动时按 runs/<YYYYMMDD_HHMM>_<method>_bs<batch>_lr<lr>/ 生成（本次为 3_3_flaw 缺陷数据域内训练，1.5 MeV 单档）",
+  "method": "cnn",
+  "git_commit": "PENDING: 运行开始时的 git rev-parse HEAD",
+  "git_dirty": "PENDING",
+  "seed": 20261022,
+  "batch": 8,
+  "batch_note": "smoke 实测 batch=8 一次通过，峰值 reserved 1.12 GiB，稳态 108.4 ms/step，未降档。",
+  "lr": 0.0001,
+  "lr_note": "裁决值 1e-4；Adam。若 5 epoch 后 loss 不降或发散再提交调参方案等裁决",
+  "epochs": 5,
+  "warmup": 50,
+  "optimizer": "adam",
+  "model": {
+    "name": "unet",
+    "in_channels": 5,
+    "out_channels": 1,
+    "input_shape": [
+      32,
+      1200
+    ],
+    "params_target": "约 1.95M"
+  },
+  "norm": {
+    "norm_mean": 0.5696,
+    "norm_std": 0.9963,
+    "norm_scope": "global",
+    "zero_log_fill": 5.8,
+    "zero_fill_normalized": 5.2498,
+    "zero_fill_normalized_usage": "仅供人工核对；运行时代码由 norm_mean/norm_std/zero_log_fill 现算",
+    "domain": "-log((I + 1e-10) / (E + 1e-10))",
+    "fill_order": "先在 -log 域填 zero_log_fill，再归一化",
+    "invalid_rule": "(I <= 0) | (empty_proj <= 0)",
+    "scope_note": "norm_scope=global，本 run 只训练 1.5 MeV 单档（故 global 即该档统计量）；缺陷数据（3_3_flaw/）专用，与主 config.json 的全局 norm 互不影响；来自 sparse_targets_flaw_1.5.csv split=train 的 270 个 target，input_union 代表性检查 |Δmean|=0.0028 / |Δstd|/std=0.09%",
+    "source": "3_3_flaw/energy_scan_1.5MeV_z0.0_20261024_041257，sparse_targets_flaw_1.5.csv split=train 的 270 个 target 文件",
+    "recomputed": true,
+    "compare_full_config": {
+      "norm_mean": 0.7202,
+      "norm_std": 0.9249,
+      "zero_log_fill": 5.5,
+      "note": "主 config 的全局值（四档 1080 文件）；本文件仅供 flaw 训练"
+    },
+    "valid_coverage": 0.8084,
+    "coverage": 0.8228
+  },
+  "mask": {
+    "per_pixel": true,
+    "zero_count_excluded_from_loss": true,
+    "denominator": "mask.sum() + eps",
+    "eps": 1e-08
+  },
+  "coverage_definition": {
+    "coverage": "I_target > 0 像素数 / 总像素数（资产口径）",
+    "valid_coverage": "(I_target > 0) & (empty_proj > 0) 像素数 / 总像素数（评估口径）",
+    "rmse_valid_uses": "mask = (I_target > 0) & (empty_proj > 0)"
+  },
+  "coverage_reference": {
+    "_note": "实测参考值（split=train 1080 样本，逐样本均值），仅用于核对，不参与训练",
+    "1.5": {
+      "coverage": 0.8259,
+      "valid_coverage": 0.8053
+    },
+    "3": {
+      "coverage": 0.9607,
+      "valid_coverage": 0.9573
+    },
+    "4.5": {
+      "coverage": 0.9903,
+      "valid_coverage": 0.9901
+    },
+    "6": {
+      "coverage": 0.9978,
+      "valid_coverage": 0.9978
+    },
+    "ALL": {
+      "coverage": 0.9437,
+      "valid_coverage": 0.9376
+    }
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "manifest": "train_manifest_first_run.csv",
+    "angles": "angles.csv",
+    "data_root": "3_3/",
+    "forbidden": "data_manifest.csv（全量 16 档资产清单，dataset 禁止读取）",
+    "energies_MeV": [
+      1.5,
+      3.0,
+      4.5,
+      6.0
+    ],
+    "split_sizes": {
+      "train": 1080,
+      "val": 180,
+      "test": 180
+    },
+    "input_channels": {
+      "ch0": "ch0_file (theta_i)",
+      "ch1": "ch_prev_file (theta_{i-1})",
+      "ch2": "ch_next_file (theta_{i+1})",
+      "ch3": "sin(theta_target)",
+      "ch4": "cos(theta_target)"
+    }
+  },
+  "eval": {
+    "primary_metric": "rmse_valid（非零计数像素上的物理域 RMSE）",
+    "also_report": [
+      "rmse_full",
+      "coverage",
+      "valid_coverage"
+    ],
+    "invariant": "rmse_full >= rmse_valid",
+    "best_ckpt_by": "val rmse_valid"
+  },
+  "env": {
+    "_note": "全部为本机实测值，采集时间见 env.measured_at；非推断、非默认值",
+    "measured_at": "2026-10-22",
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "torch": "2.11.0+cu128",
+    "torch_cuda_version": "12.8",
+    "cudnn": 91900,
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "compute_capability": "8.9",
+    "total_memory_bytes": 8585216000,
+    "total_memory_human": "8.59 GB = 8.00 GiB",
+    "free_memory_at_measure_bytes": 7411335168,
+    "free_memory_at_measure_human": "6.90 GiB（测量时 QQ.exe 等占用约 1.09 GiB）",
+    "driver": "596.49",
+    "wheel": "downloads/torch-2.11.0+cu128-cp312-cp312-win_amd64.whl",
+    "wheel_bytes": 2753189216,
+    "wheel_integrity": "zipfile.testzip() 全量 CRC 校验通过，11818 条目无损坏"
+  }
+}

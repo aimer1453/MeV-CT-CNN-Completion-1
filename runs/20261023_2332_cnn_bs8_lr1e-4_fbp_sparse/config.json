@@ -1,0 +1,72 @@
+{
+  "run_id": "20261023_2332_cnn_bs8_lr1e-4_fbp_sparse",
+  "method": "fbp_sparse",
+  "domain": "image",
+  "method_note": "稀疏 180 视角（2° 步进）+ skimage iradon 滤波反投影；无正弦图补全",
+  "reference_run_id": "20261023_2332_cnn_bs8_lr1e-4",
+  "git_commit": "798ca8037c646cfba6027fb934ac4f7f559e1e54",
+  "git_dirty": true,
+  "geometry": {
+    "sensor_x": 1200,
+    "sensor_y": 32,
+    "recon_row": 16,
+    "output_size": [
+      1200,
+      1200
+    ],
+    "sinogram_shape": [
+      360,
+      1200
+    ],
+    "note": "32 是探测器行（sensor_y），1200 是探测器列（sensor_x）；角度轴在文件名里"
+  },
+  "sampling": {
+    "dense": {
+      "n_views": 360,
+      "step_deg": 1.0,
+      "source": "angles.csv 全 360 角"
+    },
+    "sparse": {
+      "n_views": 180,
+      "step_deg": 2.0,
+      "phase_rule": "A=偶数角，B=奇数角；输入相位 = opposite(target phase)",
+      "why_not_merge": "不合并 A+B，避免与 dense 360 角语义混淆"
+    }
+  },
+  "recon": {
+    "filter_name": "hamming",
+    "sart_n_iter": null,
+    "sart_relaxation": null,
+    "sart_clip": null,
+    "clip_note": null,
+    "fov_restriction": "重建圆外一律置零。FBP 由 circle=True 自动完成；iradon_sart 无 circle 参数，由 restrict_to_fov 显式置零（否则圆外 ART 残余 ~4e-5 会污染 rmse_full）"
+  },
+  "norm": {
+    "norm_scope": null,
+    "note": "基线不经过网络，重建全程在 -log 物理域，不做归一化/反归一化"
+  },
+  "log_eps": 1e-10,
+  "zero_log_fill": 5.5,
+  "metric_definition": {
+    "domain": "image",
+    "rmse_valid": "FOV 重建圆（xpr^2+ypr^2<=600^2，1130911 像素）上的 RMSE，图像域",
+    "rmse_full": "全部 1200x1200 像素上的 RMSE",
+    "psnr": "10*log10(data_range^2/mse_valid)，data_range = dense.max()-dense.min()（逐档不同，跨档不可比）",
+    "psnr_common": "同上但 data_range 取**四档统一**的 max-min（=1.5 MeV 那档的 0.2737），用于跨能量比较；逐档 psnr 会把 data_range 大的档判得更好",
+    "ssim": "中心 848x848 裁剪上的 SSIM（该方框半对角 599.6 < 600，全部在重建圆内，避免圆外恒零区抬高 SSIM）",
+    "reference": "dense = 360 视角 1° 步进 FBP，由本脚本同代码重算",
+    "domain_invariant": "图像域恒有 rmse_full <= rmse_valid，且 rmse_full = rmse_valid*sqrt(n_valid/n_full)，因为 iradon(circle=True) 把圆外两图都置零；该关系与投影域相反，不要照搬投影域断言",
+    "cross_domain_warning": "本文件的 rmse_valid 是**图像域**，与 CNN 的投影域 rmse_valid 不同域、数值不可同表比较"
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "split": "test",
+    "n_samples": 180,
+    "energies_MeV": [
+      "1.5",
+      "3",
+      "4.5",
+      "6"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "run_id": "20261022_2352_cnn_bs8_lr1e-4_cnn_recon_mask",
+  "method": "cnn_completed_mask_postprocess",
+  "domain": "display_0_1",
+  "cnn_run_id": "20261022_2352_cnn_bs8_lr1e-4",
+  "best_pt": "runs/20261022_2352_cnn_bs8_lr1e-4/best.pt",
+  "best_epoch": 4,
+  "best_val_rmse_valid_phys": 0.556197553115092,
+  "device": "cuda",
+  "energies": [
+    "1.5",
+    "3",
+    "4.5",
+    "6"
+  ],
+  "completion": {
+    "n_views_total": 360,
+    "n_predicted_views_per_phase": 180,
+    "input_phases": [
+      "A",
+      "B"
+    ],
+    "aggregation": "mean of the two phase-complementary completed sinograms (sinogram domain, not image domain)"
+  },
+  "reconstruction": {
+    "sinogram": "smooth_empty(sigma=2.0) row 16, -log(I/max(E_smooth,1e-10))",
+    "predicted_view_domain_conversion": "L_smooth = L_raw + log(max(E_smooth[16],1e-10)/(E_raw[16]+1e-10))",
+    "ring_correction": {
+      "method": "fw",
+      "level": 5,
+      "impl": "tomopy.remove_stripe_fw"
+    },
+    "algorithm": "sirt",
+    "num_iter": 20,
+    "sinogram_order": true,
+    "post": "np.maximum(recon, 0), no FOV circle masking",
+    "source": "3_3_geant4/quick_reconstruct.py (functions reused)"
+  },
+  "mask_postprocess": {
+    "script": "3_3\\energy_scan_0.5MeV_20260724_215534_20260724_215534\\mask_reconstruction.py",
+    "steps": [
+      "3-level quantized mask (low=0.33, high=0.66)",
+      "dilate_gray_white",
+      "correct_ring_by_material (threshold=2.0)",
+      "apply_mask_to_array (sigma=1.0)",
+      "enhance_by_mask"
+    ],
+    "note": "原版脚本只改三个 I/O 路径，函数逻辑一律未动",
+    "work_dir": "tmp_r8_postprocessing"
+  },
+  "metrics": {
+    "definitions": {
+      "Uniformity": "std/mean of background ROI",
+      "CNR": "|mean(fuel 60x60) - mean(bg)| / std(bg)",
+      "SNR": "mean(fuel 60x60) / std(bg)",
+      "Ring_Index": "std(diff)/mean(abs(diff)) of radial means, same formula as quick_reconstruct.py"
+    },
+    "background_roi": "gray band (|mask-0.5|<0.15); the original four-corner ROI degenerates to all-zero after masking (see roi_sanity_check)",
+    "domain": "display 0..1 (8-bit PNG), NOT physical"
+  },
+  "git_commit": "26daa289befb1966c5a9b0a9f98221363991d409",
+  "git_dirty": true
+}

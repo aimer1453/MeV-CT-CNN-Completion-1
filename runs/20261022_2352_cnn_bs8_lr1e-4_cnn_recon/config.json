@@ -1,0 +1,103 @@
+{
+  "run_id": "20261022_2352_cnn_bs8_lr1e-4_cnn_recon",
+  "method": "cnn_completed",
+  "domain": "image",
+  "method_note": "CNN 补齐相反相位的 180 个视角 → 与 180 个实测视角交错成 360 视角正弦图 → hamming FBP；与 dense（360 视角全实测 FBP）比 PSNR/SSIM",
+  "reference_run_id": "20261022_2352_cnn_bs8_lr1e-4",
+  "checkpoint": {
+    "file": "runs/20261022_2352_cnn_bs8_lr1e-4/best.pt",
+    "best_epoch": 4,
+    "val_rmse_valid_phys": 0.556197553115092
+  },
+  "git_commit": "76757b3ee6bdf9c9462de854ca2198582b2c29dc",
+  "git_dirty": true,
+  "geometry": {
+    "sensor_x": 1200,
+    "sensor_y": 32,
+    "recon_row": 16,
+    "output_size": [
+      1200,
+      1200
+    ],
+    "sinogram_shape": [
+      360,
+      1200
+    ]
+  },
+  "sampling": {
+    "dense": {
+      "n_views": 360,
+      "step_deg": 1.0
+    },
+    "completed": {
+      "measured_views": 180,
+      "predicted_views": 180,
+      "step_deg": 1.0
+    },
+    "phase_rule": "A = 偶数角，B = 奇数角；预测相位 = opposite(实测相位)"
+  },
+  "n_views": 360,
+  "n_completed": 180,
+  "held_out_restricted": false,
+  "held_out_note": "image-domain metrics were computed from 180 measured views plus 180 completed views; the completed set is not restricted to the held-out split.",
+  "norm": {
+    "norm_mean": 0.7202,
+    "norm_std": 0.9249,
+    "zero_log_fill": 5.5,
+    "note": "反归一化按 train.py:461 的 pred*std + mean，与 evaluate 同式"
+  },
+  "recon": {
+    "filter_name": "hamming",
+    "circle": true,
+    "fov_restriction": "圆外置零（circle=True 自动，等价于 baseline_recon 的 restrict_to_fov）"
+  },
+  "inference": {
+    "batch": 8,
+    "device": "cuda/cpu 自动",
+    "shuffle": false,
+    "gt_needed": false
+  },
+  "metric_definition": {
+    "domain": "image",
+    "rmse_valid": "FOV 重建圆（r<=600，1,130,911 像素）上的 RMSE",
+    "rmse_full": "全部 1200x1200 像素；圆外两图皆 0，故恒有 rmse_full <= rmse_valid",
+    "psnr": "10*log10(data_range^2/mse_valid)，data_range 逐档不同",
+    "psnr_common": "同上但 data_range 取四档统一值，用于跨能量比较",
+    "ssim": "中心 848x848 裁剪上的 SSIM（该方框半对角 599.6 < 600，全在圆内）",
+    "reference": "dense = 360 视角全实测 FBP，与 baseline_recon.py 同一份代码",
+    "cross_domain_warning": "本文件 rmse_valid 是图像域，与投影域 rmse_valid 不同域、不可同表",
+    "optimism_warning": "原写'补全的 180 个缺失视角中约 135 个属 train 划分 → 乐观估计'，但 train_test_gap_check 实测未观察到 train/test 差距（epoch=4 未收敛），故不写该警告；详见 test_metrics.json",
+    "table_note_en": "image-domain metrics were computed from 180 measured views plus 180 completed views; the completed set is not restricted to the held-out split."
+  },
+  "data": {
+    "targets": "sparse_targets.csv",
+    "split": "test",
+    "n_samples": 180,
+    "energies_MeV": [
+      "1.5",
+      "3",
+      "4.5",
+      "6"
+    ],
+    "reconstructions_per_energy": 2,
+    "note": "n_samples=45/档 是按 target 相位分配的样本数；实际重建次数是 2/档（每个输入相位一张）"
+  },
+  "dense_reference_cross_check": {
+    "1.5": {
+      "compared_with": "runs\\20261022_2352_cnn_bs8_lr1e-4_fbp_sparse\\recon\\dense_1.5_fbp_hamming.npy",
+      "byte_equal": true
+    },
+    "3": {
+      "compared_with": "runs\\20261022_2352_cnn_bs8_lr1e-4_fbp_sparse\\recon\\dense_3_fbp_hamming.npy",
+      "byte_equal": true
+    },
+    "4.5": {
+      "compared_with": "runs\\20261022_2352_cnn_bs8_lr1e-4_fbp_sparse\\recon\\dense_4.5_fbp_hamming.npy",
+      "byte_equal": true
+    },
+    "6": {
+      "compared_with": "runs\\20261022_2352_cnn_bs8_lr1e-4_fbp_sparse\\recon\\dense_6_fbp_hamming.npy",
+      "byte_equal": true
+    }
+  }
+}

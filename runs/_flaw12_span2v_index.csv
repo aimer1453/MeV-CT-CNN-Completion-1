@@ -1,0 +1,13 @@
+step,seed,csv,run_id,minutes
+8,20261022,sparse_targets_flaw12_3.0_s8.csv,20261030_0919_cnn_2view_bs8_lr1e-4_flawspan_v2_s8_s20261022,12.8
+8,20261023,sparse_targets_flaw12_3.0_s8.csv,20261030_0919_cnn_2view_bs8_lr1e-4_flawspan_v2_s8_s20261023,12.9
+8,20261024,sparse_targets_flaw12_3.0_s8.csv,20261030_0919_cnn_2view_bs8_lr1e-4_flawspan_v2_s8_s20261024,13.1
+2,20261022,sparse_targets_flaw12_3.0.csv,20261030_0932_cnn_2view_bs8_lr1e-4_flawspan_v2_s2_s20261022,12.6
+2,20261023,sparse_targets_flaw12_3.0.csv,20261030_0932_cnn_2view_bs8_lr1e-4_flawspan_v2_s2_s20261023,12.8
+2,20261024,sparse_targets_flaw12_3.0.csv,20261030_0932_cnn_2view_bs8_lr1e-4_flawspan_v2_s2_s20261024,12.6
+4,20261023,sparse_targets_flaw12_3.0_s4.csv,20261030_0950_cnn_2view_bs8_lr1e-4_flawspan_v2_s4_s20261023,12.8
+4,20261024,sparse_targets_flaw12_3.0_s4.csv,20261030_0950_cnn_2view_bs8_lr1e-4_flawspan_v2_s4_s20261024,12.8
+4,20261022,sparse_targets_flaw12_3.0_s4.csv,20261030_0950_cnn_2view_bs8_lr1e-4_flawspan_v2_s4_s20261022,12.9
+6,20261022,sparse_targets_flaw12_3.0_s6.csv,20261030_1003_cnn_2view_bs8_lr1e-4_flawspan_v2_s6_s20261022,13.0
+6,20261023,sparse_targets_flaw12_3.0_s6.csv,20261030_1003_cnn_2view_bs8_lr1e-4_flawspan_v2_s6_s20261023,12.9
+6,20261024,sparse_targets_flaw12_3.0_s6.csv,20261030_1003_cnn_2view_bs8_lr1e-4_flawspan_v2_s6_s20261024,12.8

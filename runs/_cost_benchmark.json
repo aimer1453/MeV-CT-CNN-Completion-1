@@ -1,0 +1,43 @@
+{
+  "run_id": "20261024_0400_cnn_bs8_lr1e-4",
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "best_epoch_in_ckpt": 96,
+  "params_total": 1950017,
+  "params_trainable": 1950017,
+  "input_shape_per_view": [
+    1,
+    5,
+    32,
+    1200
+  ],
+  "inference_ms_per_view_gpu_only": {
+    "median": 5.651999992551282,
+    "mean": 5.832496000415024,
+    "p95": 9.089960012352094,
+    "n_iter": 300
+  },
+  "inference_ms_per_view_end_to_end_h2d": {
+    "median": 5.917000002227724,
+    "mean": 5.988503334228881,
+    "p95": 9.241379998275079,
+    "n_iter": 300
+  },
+  "inference_ms_per_batch8": {
+    "median": 31.279149989131838,
+    "ms_per_view": 3.9098937486414798,
+    "n_iter": 50
+  },
+  "peak_memory_allocated_GB": 0.2936878204345703,
+  "peak_memory_reserved_GB": 0.3671875,
+  "memory_note": "PyTorch 分配器峰值，不含 CUDA context(~0.3-0.5 GB)；本进程只做前向，训练峰值另见 training_wall_clock 的 run",
+  "training_wall_clock": {
+    "available": true,
+    "seconds": 2151.82581281662,
+    "minutes": 35.863763546943666,
+    "epochs_logged": 100,
+    "start": "2026-10-24 04:00:11",
+    "end": "2026-10-24 04:36:03",
+    "note": "config.json 写入 → test_metrics.json/best.pt 最后写入，含数据加载、100 epoch 训练与 test 评测"
+  },
+  "measurement_note": "warmup 30 次丢弃后计时 300 次取中位数；只做前向（no_grad），不含数据加载与后处理"
+}

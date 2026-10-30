@@ -1,0 +1,64 @@
+{
+  "run_id": "20261028_0003_cnn_bs8_lr1e-4_flaw11_1.5_flaw_step3",
+  "method": "step3_eval",
+  "domain": "image",
+  "data": {
+    "csv": "sparse_targets_flaw11_1.5.csv",
+    "n_rows": 360,
+    "split": {
+      "train": 270,
+      "val": 45,
+      "test": 45
+    },
+    "data_root": "3_3_flaw_1_1",
+    "energy_MeV": "1.5",
+    "defect": {
+      "rod_ij": [
+        -1,
+        1
+      ],
+      "world_cm": [
+        -2.6,
+        2.6
+      ],
+      "source": "缺陷版 DetectorConstruction.cc（代码为准）"
+    }
+  },
+  "norm": {
+    "norm_mean": 0.7051,
+    "norm_std": 1.1059,
+    "zero_log_fill": 6.3
+  },
+  "recon": {
+    "filter_name": "hamming",
+    "circle": true,
+    "sart_n_iter": 20,
+    "sart_relaxation": 0.15,
+    "fov_restriction": "restrict_to_fov（圆外置零）"
+  },
+  "trajectory_fit": {
+    "amp": 367.1,
+    "offset": 601.9,
+    "phase_deg": 224.7
+  },
+  "trajectory_validation": {
+    "source": "scripts/localize_flaw_cavity.py + runs/_flaw_cavity_localization.json",
+    "conclusion": "四档能量（1.5/3/4.5/6 MeV）的 dense 360 视角 FBP 里，9 根棒中心 r<=15 px 圆盘均值最暗的一根恒为 corner1（r=367.7 px, az=135deg），TRAJ 指向同一位置 → 多能量可直接复用，无需逐能量重标定",
+    "projection_fit_note": "投影域正弦拟合在 1.5 MeV 因宽影重叠偏移到 amp=354.7 px、残差 62.8 px（其余三档 amp=367.2~368.9、残差 7.7~7.8 px），图像域证据优先，故不改 TRAJ"
+  },
+  "baseline_reuse_from": "20261027_2353_cnn_bs8_lr1e-4_flaw11_1.5",
+  "geometry_px": {
+    "r_corner": 367.7,
+    "r_edge": 260.0,
+    "note": "栅距 2.6 cm、M_eff≈1、1 cm=100 px"
+  },
+  "methods": [
+    "dense",
+    "cnn_completed",
+    "linear_interp",
+    "fbp_sparse",
+    "sart_sparse"
+  ],
+  "git_commit": "e3a081e993fb863c9fa1f39155925b77d3b58a17",
+  "git_dirty": true
+}

@@ -1,0 +1,6 @@
+epoch,split,energy_MeV,n_predicted_views,note
+4,inference,1.5,360,R8 is inference-only (no training); best.pt reused from 20261022_2352_cnn_bs8_lr1e-4
+4,inference,3,360,R8 is inference-only (no training); best.pt reused from 20261022_2352_cnn_bs8_lr1e-4
+4,inference,4.5,360,R8 is inference-only (no training); best.pt reused from 20261022_2352_cnn_bs8_lr1e-4
+4,inference,6,360,R8 is inference-only (no training); best.pt reused from 20261022_2352_cnn_bs8_lr1e-4
+4,inference,all,1440,2 input phases x 180 predicted views per energy

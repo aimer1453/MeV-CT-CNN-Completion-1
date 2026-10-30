@@ -1,0 +1,334 @@
+{
+ "source": "docs/manuscript/latex/main.pdf",
+ "page_count": 27,
+ "producer": "xdvipdfmx (20240305)",
+ "engines": {
+  "pymupdf": {
+   "total_chars": 83698,
+   "repeated_digit_runs_ge5": 0,
+   "repeated_digit_run_samples": [],
+   "html_tag_count": 0,
+   "html_tag_samples": [],
+   "replacement_char_ufffd": 0,
+   "private_use_chars": 0,
+   "control_chars": 0,
+   "lines_token_repeated_ge4": [
+    {
+     "token": "the",
+     "n": 6,
+     "line": "the detector row, since the source profile makes the central row the c"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "Throughout, the error of a rule is defined as the true minus the inter"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "form the bracketing pair, while the extra view at 𝜃−3∘extends the cont"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "is the loss in the normalised domain and is therefore not the physical"
+    },
+    {
+     "token": "the",
+     "n": 5,
+     "line": "loss quoted in the text is the post-epoch evaluation-mode mean over th"
+    }
+   ],
+   "n_lines_token_repeated_ge4": 31
+  },
+  "pypdf": {
+   "total_chars": 84009,
+   "repeated_digit_runs_ge5": 0,
+   "repeated_digit_run_samples": [],
+   "html_tag_count": 0,
+   "html_tag_samples": [],
+   "replacement_char_ufffd": 0,
+   "private_use_chars": 0,
+   "control_chars": 0,
+   "lines_token_repeated_ge4": [
+    {
+     "token": "the",
+     "n": 6,
+     "line": "the detector row, since the source profile makes the central row the c"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "Throughout, the error of a rule is defined as the true minus the inter"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "form the bracketing pair, while the extra view at 𝜃 − 3∘ extends the c"
+    },
+    {
+     "token": "the",
+     "n": 4,
+     "line": "is the loss in the normalised domain and is therefore not the physical"
+    },
+    {
+     "token": "the",
+     "n": 5,
+     "line": "loss quoted in the text is the post-epoch evaluation-mode mean over th"
+    }
+   ],
+   "n_lines_token_repeated_ge4": 42
+  }
+ },
+ "pages": {
+  "page_2": {
+   "pymupdf_chars": 4312,
+   "pypdf_chars": 4325,
+   "pymupdf_head": "range stays complete. Sinogram interpolation is cheaper, but its premise, smooth angular variation of the | line integrals, fails at rod edges. Here the target vi",
+   "pypdf_head": "range stays complete. Sinogram interpolation is cheaper, but its premise, smooth angular variation of the | line integrals, fails at rod edges. Here the target vi",
+   "repeated_digit_runs_pymupdf": 0,
+   "repeated_digit_runs_pypdf": 0,
+   "html_tags_pymupdf": [],
+   "html_tags_pypdf": [],
+   "render_png": "runs/_verify_latex/p2_p8/main_p2.png",
+   "render_md5": "7d53516abae27ac304884e12288cac09"
+  },
+  "page_8": {
+   "pymupdf_chars": 2805,
+   "pypdf_chars": 2821,
+   "pymupdf_head": "Fig. 4. Validation-set physical-domain RMSE (rmse_valid) per epoch for the four energies, on valid pixels. The | final values are 0.8402, 0.5870, 0.4096 and 0.309",
+   "pypdf_head": "Fig. 4. Validation-set physical-domain RMSE (rmse_valid) per epoch for the four energies, on valid pixels. The | final values are 0.8402, 0.5870, 0.4096 and 0.309",
+   "repeated_digit_runs_pymupdf": 0,
+   "repeated_digit_runs_pypdf": 0,
+   "html_tags_pymupdf": [],
+   "html_tags_pypdf": [],
+   "render_png": "runs/_verify_latex/p2_p8/main_p8.png",
+   "render_md5": "8452135bc4d69152b836bc39e656afa3"
+  }
+ },
+ "table_mentions": [
+  {
+   "page": 5,
+   "label": "Table 3"
+  },
+  {
+   "page": 6,
+   "label": "Table 3"
+  },
+  {
+   "page": 6,
+   "label": "Table 4"
+  },
+  {
+   "page": 7,
+   "label": "Table 4"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 10,
+   "label": "Table 5"
+  },
+  {
+   "page": 11,
+   "label": "Table 6"
+  },
+  {
+   "page": 11,
+   "label": "Table 6"
+  },
+  {
+   "page": 11,
+   "label": "Table 6"
+  },
+  {
+   "page": 13,
+   "label": "Table 6"
+  },
+  {
+   "page": 14,
+   "label": "Table 7"
+  },
+  {
+   "page": 16,
+   "label": "Table 7"
+  },
+  {
+   "page": 17,
+   "label": "Table 5"
+  },
+  {
+   "page": 19,
+   "label": "Table 8"
+  },
+  {
+   "page": 19,
+   "label": "Table 6"
+  },
+  {
+   "page": 19,
+   "label": "Table 8"
+  },
+  {
+   "page": 19,
+   "label": "Table 8"
+  },
+  {
+   "page": 19,
+   "label": "Table 6"
+  },
+  {
+   "page": 19,
+   "label": "Table 6"
+  },
+  {
+   "page": 19,
+   "label": "Table 8"
+  },
+  {
+   "page": 20,
+   "label": "Table 6"
+  },
+  {
+   "page": 23,
+   "label": "Table 5"
+  },
+  {
+   "page": 23,
+   "label": "Table 5"
+  },
+  {
+   "page": 24,
+   "label": "Table 5"
+  },
+  {
+   "page": 26,
+   "label": "Table 8"
+  }
+ ],
+ "fonts": {
+  "EMB|Type0|NFDGMF+TeXGyreTermes-Italic-Identity-H": [
+   27
+  ],
+  "EMB|Type0|XWTPDZ+TeXGyreTermes-Bold-Identity-H": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   15,
+   16,
+   17,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27
+  ],
+  "EMB|Type0|YGPWVP+TeXGyreTermesMath-Regular-Identity-H": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   8,
+   9,
+   10,
+   11,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   23,
+   24,
+   25,
+   26,
+   27
+  ],
+  "EMB|Type0|YHNPHO+LMMono9-Regular-Identity-H": [
+   23
+  ],
+  "EMB|Type0|ZTQLUM+TeXGyreTermes-Regular-Identity-H": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27
+  ]
+ },
+ "embedded_images_by_page": {
+  "4": 1,
+  "5": 1,
+  "7": 1,
+  "8": 1,
+  "9": 1,
+  "12": 1,
+  "13": 1,
+  "15": 1,
+  "17": 2,
+  "23": 2,
+  "24": 2,
+  "25": 2,
+  "26": 2,
+  "27": 1
+ },
+ "embedded_images_total": 19
+}

@@ -1,0 +1,249 @@
+{
+  "row_px": 16,
+  "splits": [
+    "train"
+  ],
+  "note": "逐样本均值；coverage=(I>0)，valid_coverage=(I>0)&(E>0)",
+  "factors": {
+    "1": {
+      "csv": "sparse_targets.csv",
+      "root": "3_3",
+      "per_energy": {
+        "1.5": {
+          "n": 270,
+          "coverage": 0.8258937114197531,
+          "valid_coverage": 0.8052840470679011,
+          "coverage_row16": 0.9999413580246914,
+          "valid_coverage_row16": 0.9999413580246914,
+          "zero_frac": 0.1741062885802469,
+          "zero_frac_row16": 5.864197530864197e-05
+        },
+        "3": {
+          "n": 270,
+          "coverage": 0.96069425154321,
+          "valid_coverage": 0.9572690972222223,
+          "coverage_row16": 1.0,
+          "valid_coverage_row16": 1.0,
+          "zero_frac": 0.03930574845679012,
+          "zero_frac_row16": 0.0
+        },
+        "4.5": {
+          "n": 270,
+          "coverage": 0.9902732445987653,
+          "valid_coverage": 0.9900779320987654,
+          "coverage_row16": 1.0,
+          "valid_coverage_row16": 1.0,
+          "zero_frac": 0.009726755401234567,
+          "zero_frac_row16": 0.0
+        },
+        "6": {
+          "n": 270,
+          "coverage": 0.9977567515432098,
+          "valid_coverage": 0.9977567515432098,
+          "coverage_row16": 1.0,
+          "valid_coverage_row16": 1.0,
+          "zero_frac": 0.0022432484567901237,
+          "zero_frac_row16": 0.0
+        },
+        "ALL": {
+          "n": 1080,
+          "coverage": 0.9436544897762347,
+          "valid_coverage": 0.9375969569830247,
+          "coverage_row16": 0.9999853395061729,
+          "valid_coverage_row16": 0.9999853395061729,
+          "zero_frac": 0.05634551022376543,
+          "zero_frac_row16": 1.4660493827160493e-05
+        }
+      },
+      "_all": {
+        "n": 1080,
+        "coverage": 0.9436544897762347,
+        "valid_coverage": 0.9375969569830247,
+        "coverage_row16": 0.9999853395061729,
+        "valid_coverage_row16": 0.9999853395061729,
+        "zero_frac": 0.05634551022376543,
+        "zero_frac_row16": 1.4660493827160493e-05
+      }
+    },
+    "0.5": {
+      "csv": "sparse_targets_dose_f0.5.csv",
+      "root": "3_3_dose_f0.5",
+      "per_energy": {
+        "1.5": {
+          "n": 270,
+          "coverage": 0.21517158564814814,
+          "valid_coverage": 0.21326359953703705,
+          "coverage_row16": 0.8032808641975309,
+          "valid_coverage_row16": 0.8032808641975309,
+          "zero_frac": 0.7848284143518519,
+          "zero_frac_row16": 0.19671913580246914
+        },
+        "3": {
+          "n": 270,
+          "coverage": 0.42707754629629635,
+          "valid_coverage": 0.4267365933641975,
+          "coverage_row16": 0.9522067901234567,
+          "valid_coverage_row16": 0.9522067901234567,
+          "zero_frac": 0.5729224537037038,
+          "zero_frac_row16": 0.0477932098765432
+        },
+        "4.5": {
+          "n": 270,
+          "coverage": 0.5785488040123457,
+          "valid_coverage": 0.5785280671296297,
+          "coverage_row16": 0.9740648148148148,
+          "valid_coverage_row16": 0.9740648148148148,
+          "zero_frac": 0.4214511959876543,
+          "zero_frac_row16": 0.025935185185185183
+        },
+        "6": {
+          "n": 270,
+          "coverage": 0.674847125771605,
+          "valid_coverage": 0.674847125771605,
+          "coverage_row16": 0.9797592592592591,
+          "valid_coverage_row16": 0.9797592592592591,
+          "zero_frac": 0.32515287422839506,
+          "zero_frac_row16": 0.02024074074074074
+        },
+        "ALL": {
+          "n": 1080,
+          "coverage": 0.47391126543209877,
+          "valid_coverage": 0.4733438464506173,
+          "coverage_row16": 0.9273279320987655,
+          "valid_coverage_row16": 0.9273279320987655,
+          "zero_frac": 0.5260887345679013,
+          "zero_frac_row16": 0.07267206790123458
+        }
+      },
+      "_all": {
+        "n": 1080,
+        "coverage": 0.47391126543209877,
+        "valid_coverage": 0.4733438464506173,
+        "coverage_row16": 0.9273279320987655,
+        "valid_coverage_row16": 0.9273279320987655,
+        "zero_frac": 0.5260887345679013,
+        "zero_frac_row16": 0.07267206790123458
+      }
+    },
+    "0.25": {
+      "csv": "sparse_targets_dose_f0.25.csv",
+      "root": "3_3_dose_f0.25",
+      "per_energy": {
+        "1.5": {
+          "n": 270,
+          "coverage": 0.1378371913580247,
+          "valid_coverage": 0.13684230324074073,
+          "coverage_row16": 0.6488395061728395,
+          "valid_coverage_row16": 0.6488395061728395,
+          "zero_frac": 0.8621628086419754,
+          "zero_frac_row16": 0.35116049382716047
+        },
+        "3": {
+          "n": 270,
+          "coverage": 0.2978484760802469,
+          "valid_coverage": 0.2976744791666667,
+          "coverage_row16": 0.856929012345679,
+          "valid_coverage_row16": 0.856929012345679,
+          "zero_frac": 0.7021515239197531,
+          "zero_frac_row16": 0.14307098765432097
+        },
+        "4.5": {
+          "n": 270,
+          "coverage": 0.4224994212962963,
+          "valid_coverage": 0.42248890817901236,
+          "coverage_row16": 0.9027438271604938,
+          "valid_coverage_row16": 0.9027438271604938,
+          "zero_frac": 0.5775005787037037,
+          "zero_frac_row16": 0.09725617283950617
+        },
+        "6": {
+          "n": 270,
+          "coverage": 0.5092002314814814,
+          "valid_coverage": 0.5092002314814814,
+          "coverage_row16": 0.9196635802469135,
+          "valid_coverage_row16": 0.9196635802469135,
+          "zero_frac": 0.49079976851851853,
+          "zero_frac_row16": 0.08033641975308642
+        },
+        "ALL": {
+          "n": 1080,
+          "coverage": 0.3418463300540124,
+          "valid_coverage": 0.3415514805169753,
+          "coverage_row16": 0.8320439814814815,
+          "valid_coverage_row16": 0.8320439814814815,
+          "zero_frac": 0.6581536699459877,
+          "zero_frac_row16": 0.1679560185185185
+        }
+      },
+      "_all": {
+        "n": 1080,
+        "coverage": 0.3418463300540124,
+        "valid_coverage": 0.3415514805169753,
+        "coverage_row16": 0.8320439814814815,
+        "valid_coverage_row16": 0.8320439814814815,
+        "zero_frac": 0.6581536699459877,
+        "zero_frac_row16": 0.1679560185185185
+      }
+    },
+    "0.125": {
+      "csv": "sparse_targets_dose_f0.125.csv",
+      "root": "3_3_dose_f0.125",
+      "per_energy": {
+        "1.5": {
+          "n": 270,
+          "coverage": 0.0830024112654321,
+          "valid_coverage": 0.08249353780864196,
+          "coverage_row16": 0.465608024691358,
+          "valid_coverage_row16": 0.465608024691358,
+          "zero_frac": 0.9169975887345679,
+          "zero_frac_row16": 0.534391975308642
+        },
+        "3": {
+          "n": 270,
+          "coverage": 0.19193296682098765,
+          "valid_coverage": 0.19184162808641975,
+          "coverage_row16": 0.6953888888888888,
+          "valid_coverage_row16": 0.6953888888888888,
+          "zero_frac": 0.8080670331790124,
+          "zero_frac_row16": 0.3046111111111111
+        },
+        "4.5": {
+          "n": 270,
+          "coverage": 0.2816265432098765,
+          "valid_coverage": 0.2816209490740741,
+          "coverage_row16": 0.7626975308641974,
+          "valid_coverage_row16": 0.7626975308641974,
+          "zero_frac": 0.7183734567901234,
+          "zero_frac_row16": 0.23730246913580244
+        },
+        "6": {
+          "n": 270,
+          "coverage": 0.3478959297839506,
+          "valid_coverage": 0.3478959297839506,
+          "coverage_row16": 0.7929907407407407,
+          "valid_coverage_row16": 0.7929907407407407,
+          "zero_frac": 0.6521040702160494,
+          "zero_frac_row16": 0.20700925925925925
+        },
+        "ALL": {
+          "n": 1080,
+          "coverage": 0.22611446277006172,
+          "valid_coverage": 0.2259630111882716,
+          "coverage_row16": 0.6791712962962962,
+          "valid_coverage_row16": 0.6791712962962962,
+          "zero_frac": 0.7738855372299384,
+          "zero_frac_row16": 0.3208287037037037
+        }
+      },
+      "_all": {
+        "n": 1080,
+        "coverage": 0.22611446277006172,
+        "valid_coverage": 0.2259630111882716,
+        "coverage_row16": 0.6791712962962962,
+        "valid_coverage_row16": 0.6791712962962962,
+        "zero_frac": 0.7738855372299384,
+        "zero_frac_row16": 0.3208287037037037
+      }
+    }
+  }
+}

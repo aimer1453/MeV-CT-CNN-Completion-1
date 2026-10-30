@@ -1,0 +1,23 @@
+# —— data and weights are never committed ——
+*.npy
+*.npz
+*.pt
+*.pth
+*.whl
+3_3*/
+data_root/
+results/
+
+# —— build outputs ——
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.png
+*.pdf
+
+# —— local ——
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+venv/
